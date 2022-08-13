@@ -1,22 +1,25 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { useSelector, useDispatch, useEffect } from 'react-redux/es/exports';
 import { useState } from 'react';
-import { changename } from '../../redux/modules/user';
+import axios from 'axios';
+import { checkEmailThunk } from '../../redux/modules/user';
 
 const Login = () => {
-  const dummy = useSelector((state) => state.name);
-
   const dispatch = useDispatch();
 
-  console.log(dummy);
+  const testDummy = {
+    title: 'asdasd',
+    author: 'asdasd',
+  };
 
-  const goname = () => {
-    dispatch(changename('inho'));
+  const sign = async () => {
+    dispatch(checkEmailThunk(testDummy));
+    //서버에 올리고 올린 데이터값이 리턴값으로 반환된다.
   };
 
   return (
     <div>
-      <button onClick={goname}>+</button>
+      <button onClick={sign}>+</button>
     </div>
   );
 };

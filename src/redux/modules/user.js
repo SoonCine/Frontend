@@ -4,14 +4,23 @@ import axios from 'axios';
 const initialState = {};
 
 export const checkEmailThunk = createAsyncThunk(
-    "user/checkEmailThunk"
-)
+  'user/checkEmailThunk',
+  async (payload, thunkAPI) => {
+    console.log(payload);
+    const resData = await axios
+      .post('http://localhost:3001/posts', payload.userName)
+      .then((res) => res.data);
 
-const changeName = createSlice({
+    // return thunkAPI.fulfillWithValue(resData);
+    return payload;
+  }
+);
+
+const userSlice = createSlice({
   name: 'name',
   initialState: initialState,
   reducers: {},
 });
 
-export const { changename } = changeName.actions;
-export default changeName.reducer;
+// export const { userSlice } = userSlice.actions;
+export default userSlice.reducer;
