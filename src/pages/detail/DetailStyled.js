@@ -9,8 +9,7 @@ export const WholeDetail = styled.div`
   margin: 20px;
   justify-content: center; */
   background-color: gray;
-  /* width: 1000px;
-  height: 500px; */
+  /* width: 1000px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,11 +21,15 @@ export const ImageNinfo = styled.div`
   height: 100px;
   border: 1px solid black;
   margin: 20px; */
+  /* background-color: lightblue; */
+  width: 560px;
   border: 1px solid black;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: upper;
+  align-items: center;
+  /* align-items: upper; */
 `;
 export const ImageBox = styled.div`
   width: 160px;
@@ -35,34 +38,50 @@ export const ImageBox = styled.div`
   margin: 20px;
 `;
 export const MovieImage = styled.img`
-  width: 100px;
-  height: 130px;
-  padding: 50px 20%;
-  /* box-sizing: border-box; */
+  width: 160px;
+  height: 210px;
+  /* padding: 10px 3%; */
+  background-size: contain;
+  background-position: center;
+  box-sizing: border-box;
 `;
 export const MovieInfo = styled.div`
-  /* width: 150px;
-  height: 210px; */
+  width: 330px;
+  height: 220px;
   border: 1px solid black;
   margin: 20px 20px 20px 0px;
-`;
-export const MovieEngtitle = styled.p`
-  /* width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  margin: 20px; */
 `;
 export const MovieTitle = styled.p`
   /* width: 100px;
   height: 100px;
   border: 1px solid black;
   margin: 20px; */
+  margin: 10px 10px 0px 10px;
+  font-size: 30px;
+`;
+export const MovieEngtitle = styled.p`
+  /* width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 20px; */
+  margin: 0px 0px 0px 10px;
+  font-size: 13px;
 `;
 export const MovieGenre = styled.p`
   /* width: 100px;
   height: 100px;
   border: 1px solid black;
   margin: 20px; */
+  margin: 10px;
+  font-size: 20px;
+`;
+export const MovieReleaseDate = styled.p`
+  /* width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 20px; */
+  margin: 10px;
+  font-size: 20px;
 `;
 export const Likes = styled.button`
   /* width: 100px;
@@ -70,11 +89,15 @@ export const Likes = styled.button`
   border: 1px solid black;
   margin: 20px; */
   cursor: pointer;
+  margin: 0px 0px 0px 10px;
 `;
 export const CommentBox = styled.div`
   /* width: 500px;
   height: 100px; */
+  width: 560px;
+  height: 400px;
   border: 1px solid black;
+  border-radius: 10px;
   margin: 20px;
   justify-content: center;
   align-items: center;
@@ -94,12 +117,12 @@ export const InputComment = styled.input`
   height: 100px;
   border: 1px solid black;
   margin: 20px; */
+  width: 445px;
+  height: 35px;
 `;
 export const SaveButton = styled.button`
-  /* width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  margin: 20px; */
+  height: 40px;
+  width: 48px;
   margin: 0 0 0 20px;
   cursor: pointer;
 `;
@@ -114,6 +137,7 @@ export const IndivComment = styled.div`
   /* width: 100px;
   height: 100px; */
   border: 1px solid black;
+  border-radius: 10px;
   margin: 20px;
   display: flex;
   flex-direction: row;
@@ -122,14 +146,16 @@ export const IndivComment = styled.div`
 export const CommentNickname = styled.p`
   /* width: 100px;
   height: 20px; */
+  width: 120px;
+  height: 30px;
   border: 1px solid black;
-  margin: 20px;
+  margin: 15px;
 `;
 export const CommentContent = styled.p`
-  /* width: 300px;
-  height: 20px; */
+  width: 300px;
+  height: 30px;
   border: 1px solid black;
-  margin: 20px;
+  margin: 15px 0px 15px 0px;
 `;
 export const DeleteButton = styled.button`
   border: 1px solid black;
