@@ -8,6 +8,7 @@ import {
   MovieTitle,
   MovieEngtitle,
   MovieGenre,
+  MovieReleaseDate,
   Likes,
   CommentBox,
   CommentNbutton,
@@ -25,13 +26,14 @@ function Detail() {
     <WholeDetail>
       <ImageNinfo>
         <ImageBox>
-          이미지 들어갈 자리
-          <MovieImage src="https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg" />
+          <MovieImage src="https://mblogthumb-phinf.pstatic.net/MjAxOTAxMTJfMzMg/MDAxNTQ3MjczNjczMjc1.8m8t9fNnOr87ggvT00zTmlbACX6EmnmU_kw_lr9pj5Yg.ZTqgm4WTeWyTNDKCECB7dW2zao5QjPX0GFpTcpmCYMEg.JPEG.mchumini/FMV-308.jpg?type=w800" />
         </ImageBox>
         <MovieInfo>
           <MovieTitle>영화 제목</MovieTitle>
           <MovieEngtitle>영어 제목</MovieEngtitle>
+          <hr></hr>
           <MovieGenre>장르</MovieGenre>
+          <MovieReleaseDate>개봉일</MovieReleaseDate>
           <Likes> ♥ </Likes>
         </MovieInfo>
       </ImageNinfo>
