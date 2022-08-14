@@ -11,8 +11,8 @@ export const checkEmailThunk = createAsyncThunk(
       .post('http://localhost:3001/posts', payload.userName)
       .then((res) => res.data);
 
-    // return thunkAPI.fulfillWithValue(resData);
-    return payload;
+    return thunkAPI.fulfillWithValue(resData);
+    // return {msg : true};
   }
 );
 
