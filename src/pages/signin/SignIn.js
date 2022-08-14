@@ -12,6 +12,7 @@ import {
   IdInputArea,
   PwInputArea,
   ButtonTotalArea,
+
   LoginDiv,
   SignUpDiv
 } from './SignInStyled';
@@ -23,8 +24,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const testDummy = {
-    title: "asdasd",
-    author: "asdasd",
+    title: 'asdasd',
+    author: 'asdasd',
   };
 
   const sign = async () => {
@@ -38,11 +39,11 @@ const Login = () => {
         <TitleDiv>순씨네</TitleDiv>
         <MainForm>
           <IdInputArea>
-            <TotalInput placeholder='ID'/>
+            <TotalInput placeholder="ID" />
           </IdInputArea>
 
           <PwInputArea>
-            <TotalInput placeholder='PW' />
+            <TotalInput placeholder="PW" />
           </PwInputArea>
 
           <ButtonTotalArea>
@@ -55,5 +56,4 @@ const Login = () => {
   );
 };
 
-//테스트
 export default Login;
