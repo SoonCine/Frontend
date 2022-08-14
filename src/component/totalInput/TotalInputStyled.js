@@ -8,7 +8,6 @@ outline: none;
 border-radius: 15px;
 border: none;
 padding-left: 10px;
-/* font-family: "okgung"; */
 font-size: 16px;
 padding-left: 10px;
 &:focus{

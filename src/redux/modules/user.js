@@ -6,12 +6,9 @@ const initialState = {};
 export const checkEmailThunk = createAsyncThunk(
   'user/checkEmailThunk',
   async (payload, thunkAPI) => {
-    console.log(payload);
-    const resData = await axios
-      .post('http://localhost:3001/posts', payload.userName)
-      .then((res) => res.data);
+console('check')
 
-    return thunkAPI.fulfillWithValue(resData);
+    return thunkAPI.fulfillWithValue();
     // return {msg : true};
   }
 );
