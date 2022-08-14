@@ -1,15 +1,15 @@
-import React from "react";
-import { useSelector, useDispatch, useEffect } from "react-redux/es/exports";
-import { useState } from "react";
-import axios from "axios";
-import { checkEmailThunk } from "../../redux/modules/user";
+import React from 'react';
+import { useSelector, useDispatch, useEffect } from 'react-redux/es/exports';
+import { useState } from 'react';
+import axios from 'axios';
+import { checkEmailThunk } from '../../redux/modules/user';
 
 const Login = () => {
   const dispatch = useDispatch();
 
   const testDummy = {
-    title: "asdasd",
-    author: "asdasd",
+    title: 'asdasd',
+    author: 'asdasd',
   };
 
   const sign = async () => {
@@ -24,5 +24,4 @@ const Login = () => {
   );
 };
 
-//테스트
 export default Login;
