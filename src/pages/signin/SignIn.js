@@ -3,6 +3,7 @@ import { useSelector, useDispatch, useEffect } from 'react-redux/es/exports';
 import { useState } from 'react';
 import axios from 'axios';
 import { checkEmailThunk } from '../../redux/modules/user';
+import { useNavigate } from 'react-router-dom';
 //styled import
 import {
   MainForm,
@@ -10,7 +11,9 @@ import {
   TitleDiv,
   IdInputArea,
   PwInputArea,
-  ButtonTotalArea
+  ButtonTotalArea,
+  LoginDiv,
+  SignUpDiv
 } from './SignInStyled';
 import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
 import { TotalInput } from '../../component/totalInput/TotalInputStyled';
@@ -18,7 +21,7 @@ import { TotalInput } from '../../component/totalInput/TotalInputStyled';
 const Login = () => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-
+  const navigate = useNavigate()
   const testDummy = {
     title: "asdasd",
     author: "asdasd",
@@ -43,8 +46,8 @@ const Login = () => {
           </PwInputArea>
 
           <ButtonTotalArea>
-            <TotalButton>로그인</TotalButton>
-            <TotalButton>회원가입</TotalButton>
+            <LoginDiv><TotalButton>로그인</TotalButton></LoginDiv>
+            <SignUpDiv><TotalButton onClick={()=>{navigate("/signup")}}>회원가입</TotalButton></SignUpDiv>
           </ButtonTotalArea>
         </MainForm>
       </MainBody>
