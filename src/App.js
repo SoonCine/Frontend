@@ -1,6 +1,6 @@
 //Router import
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import styled from 'styled-components';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import styled from "styled-components";
 
 //Component import
 import Detail from "./pages/detail/Detail";
