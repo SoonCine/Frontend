@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+//styled import
 import {
   WholeDetail,
   ImageNinfo,
@@ -22,6 +24,9 @@ import {
 } from "./DetailStyled";
 
 function Detail() {
+  //comment값에 글의 param값 나중에 추가하기
+
+  
   return (
     <WholeDetail>
       <ImageNinfo>
