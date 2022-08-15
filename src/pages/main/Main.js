@@ -60,7 +60,7 @@ const Main = () => {
     <MainWrap>
       <MainHeader />
 
-      <MainNav>배성열</MainNav>
+      <MainNav>환영합니다. 배성열</MainNav>
 
       <MainListContainer>
         {movieList.map((item, index) => {
@@ -95,16 +95,5 @@ const MainListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
-const MainUl = styled.ul`
-  overflow: hidden;
-  margin: 15px -42px -30px 1px;
-  list-style: none;
-  text-align: left;
-`;
-const MainLi = styled.li`
-  float: left;
-  width: 120px;
-  height: 183px;
-  margin: 0 21px 27px 0;
-`;
+
 export default Main;

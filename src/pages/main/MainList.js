@@ -4,7 +4,7 @@ import { HeartFilled } from '@ant-design/icons';
 
 const MainList = ({ movieList, setMovieList }) => {
   return (
-    <ListLiWrap>
+    <ListWrap>
       <ListMovieImageBox>
         <ListMovieImage src={movieList.movieImage} alt="profile" />
       </ListMovieImageBox>
@@ -12,18 +12,21 @@ const MainList = ({ movieList, setMovieList }) => {
         <ListContentsHead>
           <h3>{movieList.movieTitle}</h3>
 
-          <div>
-            <HeartFilled />
-          </div>
-          <p> {movieList.likeCount}</p>
+          <ListContentLike>
+            <HeartFilled
+              style={{ color: 'red', fontSize: '18px', margin: '3px 5px' }}
+            />
+            <p> {movieList.likeCount}</p>
+          </ListContentLike>
         </ListContentsHead>
-        <span>{movieList.movieDate}</span>
+
+        <ListDate>개봉일:{movieList.movieDate}</ListDate>
       </ListContents>
-    </ListLiWrap>
+    </ListWrap>
   );
 };
 
-const ListLiWrap = styled.div`
+const ListWrap = styled.div`
   flex-direction: column;
   margin: 10px;
   box-sizing: border-box;
@@ -52,7 +55,7 @@ const ListContents = styled.div`
 
   align-items: center;
   margin: 10px 10px;
-  padding: 0px 20px;
+  padding: 10px;
 
   border: 2px solid black;
 `;
@@ -60,6 +63,26 @@ const ListContents = styled.div`
 const ListContentsHead = styled.div`
   display: flex;
   justify-content: space-between;
+
+  h3 {
+    margin: 0px;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+  p {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+`;
+
+const ListContentLike = styled.div`
+  display: flex;
+`;
+
+const ListDate = styled.div`
+  align-items: center;
+  justify-content: center;
 `;
 /* h3 {
     margin: 0px;
