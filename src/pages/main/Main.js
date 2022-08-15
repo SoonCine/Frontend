@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import MainHeader from './MainHeader';
@@ -8,11 +9,11 @@ const Main = () => {
   const [movieList, setMovieList] = useState([
     {
       id: 0,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
+      movieTitle: "올드보이",
+      movieDate: "22/8/14",
       movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
+        "https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg",
+      likeCount: "2",
     },
     {
       id: 1,
