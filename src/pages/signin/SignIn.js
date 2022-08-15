@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector, useDispatch, useEffect } from 'react-redux/es/exports';
-import { useState } from 'react';
-import axios from 'axios';
+import { React } from 'react';
+import { useDispatch, useEffect } from 'react-redux/es/exports';
 import { checkEmailThunk } from '../../redux/modules/user';
 import { useNavigate } from 'react-router-dom';
+import useInput from '../../hook/hook';
+import axios from 'axios'
 //styled import
 import {
   MainForm,
@@ -13,41 +13,66 @@ import {
   PwInputArea,
   ButtonTotalArea,
   LoginDiv,
-  SignUpDiv
+  SignUpDiv,
 } from './SignInStyled';
 import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
 import { TotalInput } from '../../component/totalInput/TotalInputStyled';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useInput('');
+  const [password, setPassword] = useInput('');
+  const userInfomation = { email: email, password: password };
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const testDummy = {
-    title: "asdasd",
-    author: "asdasd",
-  };
+  const navigate = useNavigate();
 
-  const sign = async () => {
-    const a = dispatch(checkEmailThunk(testDummy));
-    console.log(a);
+  const sign =  (event) => {
+    event.preventDefault();
+    axios.post('https://jsonplaceholder.typicode.com/todos',userInfomation).then((res)=>{res.data ? navigate('/main') : alert('이메일 비밀번호를 다시 확인해주세요.')});
+    
   };
 
   return (
     <>
       <MainBody>
         <TitleDiv>순씨네</TitleDiv>
-        <MainForm>
+        <MainForm onSubmit={(event) => sign(event)}>
           <IdInputArea>
-            <TotalInput placeholder='ID'/>
+            <TotalInput
+              placeholder="ID"
+              value={email}
+              onChange={setEmail}
+              required
+            />
           </IdInputArea>
 
           <PwInputArea>
-            <TotalInput placeholder='PW' />
+            <TotalInput
+              placeholder="PW"
+              value={password}
+              onChange={setPassword}
+              required
+            />
           </PwInputArea>
 
           <ButtonTotalArea>
-            <LoginDiv><TotalButton>로그인</TotalButton></LoginDiv>
-            <SignUpDiv><TotalButton onClick={()=>{navigate("/signup")}}>회원가입</TotalButton></SignUpDiv>
+            <LoginDiv>
+              <TotalButton
+                onClick={(e) => {
+                  sign(e);
+                }}
+              >
+                로그인
+              </TotalButton>
+            </LoginDiv>
+            <SignUpDiv>
+              <TotalButton
+                onClick={() => {
+                  navigate('/signup');
+                }}
+              >
+                회원가입
+              </TotalButton>
+            </SignUpDiv>
           </ButtonTotalArea>
         </MainForm>
       </MainBody>
