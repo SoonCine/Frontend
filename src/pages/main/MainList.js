@@ -56,8 +56,6 @@ const ListContents = styled.div`
   align-items: center;
   margin: 10px 10px;
   padding: 10px;
-
-  border: 2px solid black;
 `;
 
 const ListContentsHead = styled.div`

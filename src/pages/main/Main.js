@@ -59,9 +59,12 @@ const Main = () => {
     <MainWrap>
       <MainHeader />
 
-      <MainNav>환영합니다. 배성열</MainNav>
+      <MainNav>
+        <p>환영합니다. 배성열</p>
+        <button>로그아웃</button>
+      </MainNav>
 
-      <MainListContainer>
+      <MainListContainer onclick={() => {}}>
         {movieList.map((item, index) => {
           return (
             <MainList
@@ -81,12 +84,14 @@ const MainWrap = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/mymagazinepjt.appspot.com/o/animeImg%2F1655318752651?alt=media&token=fd310dd0-8c16-43e2-ac33-60733fa82791'); */
   border: 2px solid white;
   height: 100vh;
+
+  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/mymagazinepjt.appspot.com/o/animeImg%2F1655318752651?alt=media&token=fd310dd0-8c16-43e2-ac33-60733fa82791'); */
 `;
 const MainNav = styled.div`
   justify-content: end;
+  display: flex;
 `;
 
 const MainListContainer = styled.div`
