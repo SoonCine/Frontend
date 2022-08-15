@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import useInput from '../../hook/hook';
 import axios from 'axios';
-import checkEmailThunk from '../../redux/modules/user'
+import checkEmailThunk from '../../redux/modules/user';
 
 //styled import
 import {
@@ -29,18 +29,23 @@ const SignUp = () => {
   const [E_Check, setE_check] = useState(false);
   const [N_Check, setN_Check] = useState(false);
   const [P_Check, setP_check] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   // password === checkPw ? setP_check(true) : setP_check(false)
   // console.log(P_Check)
   const newAccount = {
-    email : email,
-    password : password,
-    nickName : nickName
-  }
+    email: email,
+    password: password,
+    nickName: nickName,
+  };
 
   const signUpCheck = (event) => {
     event.preventDefault();
+    if (N_Check && E_Check) {
+      dispatch(checkEmailThunk(newAccount));
+    } else {
+      alert('중복확인을 해주세요');
+    }
     if (!E_Check) {
       axios
         .post('https://jsonplaceholder.typicode.com/todos', email)
@@ -53,22 +58,18 @@ const SignUp = () => {
             setE_check(res.data);
           }
         });
-    }
-    else if(!N_Check){
+    } else if (!N_Check) {
       axios
         .post('https://jsonplaceholder.typicode.com/todos', nickName)
-        .then((res)=>{
-          if(res.data){
+        .then((res) => {
+          if (res.data) {
             alert('사용 가능한 닉네임 입니다.');
             setN_Check(res.data);
-          }else{
+          } else {
             alert('이미 사용중인 닉네임 입니다.');
             setE_check(res.data);
           }
-        })
-    }
-    if(N_Check && E_Check){
-      dispatch(checkEmailThunk(newAccount))
+        });
     }
   };
 
@@ -83,6 +84,7 @@ const SignUp = () => {
             value={email}
             onChange={setEmail}
             placeholder="이메일"
+            required
           />
           <IdButton>중복확인</IdButton>
         </IdArea>
@@ -94,6 +96,7 @@ const SignUp = () => {
             value={password}
             onChange={setPassword}
             type="password"
+            required
           />
         </PwArea>
 
@@ -104,6 +107,7 @@ const SignUp = () => {
             value={checkPw}
             onChange={setCheckPw}
             type="password"
+            required
           />
         </PwCheckArea>
 
@@ -113,6 +117,7 @@ const SignUp = () => {
             placeholder="닉네임"
             value={nickName}
             onChange={setNickName}
+            required
           />
           <IdButton>중복확인</IdButton>
         </NicknameArea>

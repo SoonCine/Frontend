@@ -6,7 +6,8 @@ const initialState = {};
 export const checkEmailThunk = createAsyncThunk(
   'user/checkEmailThunk',
   async (payload, thunkAPI) => {
-console('check')
+console.log(payload)
+console.log(thunkAPI.getState())
 
     return thunkAPI.fulfillWithValue();
     // return {msg : true};
