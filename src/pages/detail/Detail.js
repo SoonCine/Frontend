@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   WholeDetail,
   ImageNinfo,
@@ -19,7 +19,7 @@ import {
   CommentNickname,
   CommentContent,
   DeleteButton,
-} from "./DetailStyled";
+} from './DetailStyled';
 
 function Detail() {
   return (
@@ -41,8 +41,7 @@ function Detail() {
         <CommentNbutton>
           <InputComment
             type="text"
-            placeholder="댓글을 입력해 주세요."
-          ></InputComment>
+            placeholder="댓글을 입력해 주세요."></InputComment>
           <SaveButton>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>
