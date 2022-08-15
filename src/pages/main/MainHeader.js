@@ -12,9 +12,11 @@ const MainHeader = () => {
 const HeaderWrap = styled.div`
   display: flex;
   height: 6rem;
+  width: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  border: 2px solid black;
 `;
 
 const HeaderMenu = styled.div``;
