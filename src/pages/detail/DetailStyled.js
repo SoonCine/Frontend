@@ -8,7 +8,7 @@ export const WholeDetail = styled.div`
   border: 1px solid black;
   margin: 20px;
   justify-content: center; */
-  background-color: gray;
+  background-color: lightgray;
   /* width: 1000px; */
   display: flex;
   flex-direction: column;
@@ -90,6 +90,7 @@ export const Likes = styled.button`
   margin: 20px; */
   cursor: pointer;
   margin: 0px 0px 0px 10px;
+  color: crimson;
 `;
 export const CommentBox = styled.div`
   /* width: 500px;

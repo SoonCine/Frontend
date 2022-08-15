@@ -12,6 +12,7 @@ import {
   IdInputArea,
   PwInputArea,
   ButtonTotalArea,
+
   LoginDiv,
   SignUpDiv,
 } from './SignInStyled';
@@ -24,6 +25,7 @@ const Login = () => {
   const userInfomation = { email: email, password: password };
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
 
   const sign =  (event) => {
     event.preventDefault();
@@ -80,5 +82,4 @@ const Login = () => {
   );
 };
 
-//테스트
 export default Login;
