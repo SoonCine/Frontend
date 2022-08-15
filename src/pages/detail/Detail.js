@@ -34,7 +34,7 @@ function Detail() {
           <hr></hr>
           <MovieGenre>장르</MovieGenre>
           <MovieReleaseDate>개봉일</MovieReleaseDate>
-          <Likes> ♥ </Likes>
+          <Likes> ❤️ Likes </Likes>
         </MovieInfo>
       </ImageNinfo>
       <CommentBox>
