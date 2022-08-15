@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HeartFilled } from '@ant-design/icons';
+import HeartLike from './HeartLike';
 
 const MainList = ({ movieList, setMovieList }) => {
   return (
@@ -11,11 +11,10 @@ const MainList = ({ movieList, setMovieList }) => {
       <ListContents>
         <ListContentsHead>
           <h3>{movieList.movieTitle}</h3>
-
           <ListContentLike>
-            <HeartFilled
-              style={{ color: 'red', fontSize: '18px', margin: '3px 5px' }}
-            />
+            {/* 하트 카운트 */}
+            <HeartLike count={movieList.likeCount} />
+            {/* 하트 카운트 숫자 */}
             <p> {movieList.likeCount}</p>
           </ListContentLike>
         </ListContentsHead>

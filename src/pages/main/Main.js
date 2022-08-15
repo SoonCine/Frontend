@@ -1,59 +1,18 @@
 import React from 'react';
-import { useState } from 'react';
 import MainHeader from './MainHeader';
 import MainList from './MainList';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react-redux/es/exports';
+import { getMovieListThunk } from '../../redux/modules/movieList';
 
 const Main = () => {
-  const [movieList, setMovieList] = useState([
-    {
-      id: 0,
-      movieTitle: '화양연화',
-      movieDate: '22/8/14',
-      movieImage: 'http://img.movist.com/?img=/x00/00/05/17_p1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 1,
-      movieTitle: '라라랜드',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://mblogthumb-phinf.pstatic.net/MjAxOTAxMTJfMzMg/MDAxNTQ3MjczNjczMjc1.8m8t9fNnOr87ggvT00zTmlbACX6EmnmU_kw_lr9pj5Yg.ZTqgm4WTeWyTNDKCECB7dW2zao5QjPX0GFpTcpmCYMEg.JPEG.mchumini/FMV-308.jpg?type=w800',
-      likeCount: '100',
-    },
-    {
-      id: 2,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 3,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 4,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 5,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-  ]);
+  const dispatch = useDispatch();
+  const movieList = useSelector((state) => state.movieList.movieList);
+
+  useEffect(() => {
+    dispatch(getMovieListThunk());
+  }, []);
 
   return (
     <MainWrap>
@@ -70,7 +29,7 @@ const Main = () => {
             <MainList
               key={item.id}
               movieList={item}
-              setMovieList={setMovieList}
+              // setMovieList={setMovieList}
             />
           );
         })}
