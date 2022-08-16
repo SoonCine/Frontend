@@ -104,7 +104,7 @@ const SignUp = () => {
             value={password}
             onChange={setPassword}
             type="password"
-            required
+            // required
           />
         </PwArea>
 
@@ -115,7 +115,7 @@ const SignUp = () => {
             value={checkPw}
             onChange={setCheckPw}
             type="password"
-            required
+            // required
           />
         </PwCheckArea>
 
@@ -126,7 +126,7 @@ const SignUp = () => {
             value={nickName}
             onChange={setNickName}
             maxLength={8}
-            required
+            // required
           />
           <IdButton>중복확인</IdButton>
         </NicknameArea>
