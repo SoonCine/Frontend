@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import HeartLike from './HeartLike';
 
-const MainList = ({ movieList, setMovieList }) => {
+const MainList = ({ movieOpenDate, movieTitle, img, key }) => {
+  const navigate = useNavigate();
   return (
     <ListWrap>
       <ListMovieImageBox>

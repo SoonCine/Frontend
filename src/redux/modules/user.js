@@ -10,7 +10,6 @@ console.log(payload)
 console.log(thunkAPI.getState())
 
     return thunkAPI.fulfillWithValue();
-    // return {msg : true};
   }
 );
 

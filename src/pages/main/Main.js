@@ -15,8 +15,20 @@ const Main = () => {
     dispatch(asyncGetMovieList());
   }, []);
 
+  // useEffect(() => {
+  //   axios.get('http://54.180.89.34:8080/api/movie/upcomming').then((res) => {
+  //     setList(res.data.data.slice(0,12));
+  //   });
+  // }, []);
   return (
     <MainWrap>
+      <button
+        onClick={() => {
+          dispatch(movieThunk());
+        }}
+      >
+        테스트
+      </button>
       <MainHeader />
 
       <MainNav>
@@ -27,11 +39,7 @@ const Main = () => {
       <MainListContainer onclick={() => {}}>
         {movieList.map((item, index) => {
           return (
-            <MainList
-              key={`${index}_${index.movieTitle}`}
-              movieList={item}
-              // setMovieList={setMovieList}
-            />
+            <MainList key={`${index}_${index.movieTitle}`} movieList={item} />
           );
         })}
       </MainListContainer>
