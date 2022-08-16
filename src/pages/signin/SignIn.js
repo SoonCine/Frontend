@@ -3,7 +3,7 @@ import { useDispatch, useEffect } from 'react-redux/es/exports';
 import { checkEmailThunk } from '../../redux/modules/user';
 import { useNavigate } from 'react-router-dom';
 import useInput from '../../hook/hook';
-import axios from 'axios'
+import axios from 'axios';
 //styled import
 import {
   MainForm,
@@ -12,7 +12,6 @@ import {
   IdInputArea,
   PwInputArea,
   ButtonTotalArea,
-
   LoginDiv,
   SignUpDiv,
 } from './SignInStyled';
@@ -26,11 +25,15 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
-  const sign =  (event) => {
+  const sign = (event) => {
     event.preventDefault();
-    axios.post('https://jsonplaceholder.typicode.com/todos',userInfomation).then((res)=>{res.data ? navigate('/main') : alert('이메일 비밀번호를 다시 확인해주세요.')});
-    
+    axios
+      .post('https://jsonplaceholder.typicode.com/todos', userInfomation)
+      .then((res) => {
+        res.data
+          ? navigate('/main')
+          : alert('이메일 비밀번호를 다시 확인해주세요.');
+      });
   };
 
   return (
@@ -61,8 +64,7 @@ const Login = () => {
               <TotalButton
                 onClick={(e) => {
                   sign(e);
-                }}
-              >
+                }}>
                 로그인
               </TotalButton>
             </LoginDiv>
@@ -70,8 +72,7 @@ const Login = () => {
               <TotalButton
                 onClick={() => {
                   navigate('/signup');
-                }}
-              >
+                }}>
                 회원가입
               </TotalButton>
             </SignUpDiv>

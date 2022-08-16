@@ -22,7 +22,7 @@ import {
   CommentNbutton,
   InputComment,
   SaveButton,
-  ScrollDiv
+  ScrollDiv,
 } from './DetailStyled';
 
 function Detail() {
@@ -66,17 +66,11 @@ function Detail() {
           <InputComment
             type="text"
             placeholder="댓글을 입력해 주세요."
-            onChange={setComment}
-          ></InputComment>
-          <SaveButton
-            onClick={addComment}
-          >
-            등록
-          </SaveButton>
+            onChange={setComment}></InputComment>
+          <SaveButton onClick={addComment}>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>
         <ScrollDiv>
-
           {taken_comment.map((item, i) => (
             <Comment comment={item} key={i} />
           ))}

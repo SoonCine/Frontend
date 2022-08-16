@@ -1,9 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import HeartLike from "./HeartLike";
+import React from 'react';
+import styled from 'styled-components';
+import HeartLike from './HeartLike';
 
 const MainList = ({ movieList }) => {
   // const navigate = useNavigate();
+
+  const title = movieList.movieTitle;
+
+  const lengthOverCut = (str, maxLength) => {
+    return str.length > maxLength ? str.slice(0, maxLength - 1) + '...' : str;
+  };
+
   return (
     <ListWrap>
       <ListMovieImageBox>
@@ -13,7 +20,7 @@ const MainList = ({ movieList }) => {
         <ListDate>{movieList.movieOpenDate}</ListDate>
 
         <ListContentsHead>
-          <h3>{movieList.movieTitle}</h3>
+          <h3>{lengthOverCut(title, 8)}</h3>
           <ListContentLike>
             {/* 하트 카운트 */}
             <HeartLike count={movieList.likeCount} />
@@ -120,28 +127,5 @@ const ListContentLike = styled.div`
   min-width: 60px;
   /* background-color: pink; */
 `;
-
-/* h3 {
-    margin: 0px;
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 2px;
-    border: 2px solid black;
-  }
-
-  p {
-    margin-top: 2px;
-    font-size: 16px;
-    border: 2px solid black;
-  }
-
-  span {
-    display: flex;
-    align-items: center;
-    margin: 30px 0px;
-    gap: 5px;
-    font-size: 16px;
-    border: 2px solid black;
-  } */
 
 export default MainList;
