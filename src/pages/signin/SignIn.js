@@ -1,9 +1,9 @@
-import { React } from 'react';
-import { useDispatch, useEffect } from 'react-redux/es/exports';
-import { checkEmailThunk } from '../../redux/modules/user';
-import { useNavigate } from 'react-router-dom';
-import useInput from '../../hook/hook';
-import axios from 'axios';
+import { React } from "react";
+import { useDispatch, useEffect } from "react-redux/es/exports";
+import { checkEmailThunk } from "../../redux/modules/user";
+import { useNavigate } from "react-router-dom";
+import useInput from "../../hook/hook";
+import axios from "axios";
 //styled import
 import {
   MainForm,
@@ -14,13 +14,13 @@ import {
   ButtonTotalArea,
   LoginDiv,
   SignUpDiv,
-} from './SignInStyled';
-import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
-import { TotalInput } from '../../component/totalInput/TotalInputStyled';
+} from "./SignInStyled";
+import { TotalButton } from "../../component/totalButton/TotalButtonStyled";
+import { TotalInput } from "../../component/totalInput/TotalInputStyled";
 
 const Login = () => {
-  const [email, setEmail] = useInput('');
-  const [password, setPassword] = useInput('');
+  const [email, setEmail] = useInput("");
+  const [password, setPassword] = useInput("");
   const userInfomation = { email: email, password: password };
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,6 +28,7 @@ const Login = () => {
   const sign = (event) => {
     event.preventDefault();
     axios
+
       .post('http://54.180.89.34:8080/api/member/login', userInfomation)
       .then((res) =>
         res.data.success
@@ -40,7 +41,7 @@ const Login = () => {
   return (
     <>
       <MainBody>
-        <TitleDiv>순씨네</TitleDiv>
+        <TitleDiv></TitleDiv>
         <MainForm onSubmit={(event) => sign(event)}>
           <IdInputArea>
             <TotalInput
