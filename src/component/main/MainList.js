@@ -7,7 +7,6 @@ const MainList = ({ movieList }) => {
   const navigate = useNavigate();
 
   const title = movieList.movieTitle;
-  console.log(movieList);
   const lengthOverCut = (str, maxLength) => {
     return str.length > maxLength ? str.slice(0, maxLength - 1) + '...' : str;
   };

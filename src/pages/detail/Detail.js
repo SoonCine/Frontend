@@ -1,11 +1,11 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import useInput from "../../hook/hook";
-import { addCommentThunk } from "../../redux/modules/comment";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { commentList } from "../../redux/modules/comment";
-import { asyncGetMovieListDetail } from "../../redux/modules/movieListDetail";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import useInput from '../../hook/hook';
+import { addCommentThunk } from '../../redux/modules/comment';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { commentList } from '../../redux/modules/comment';
+import { asyncGetMovieListDetail } from '../../redux/modules/movieListDetail';
 import {
   WholeDetail,
   ImageNinfo,
@@ -22,13 +22,13 @@ import {
   InputComment,
   SaveButton,
   ScrollDiv,
-} from "./DetailStyled";
+} from './DetailStyled';
 
-import Comment from "../../component/comment/Comment";
+import Comment from '../../component/comment/Comment';
 
 function Detail() {
   const dispatch = useDispatch();
-  const [inputComment, setInputComment] = useInput("");
+  const [setInputComment] = useInput('');
 
   useEffect(() => {
     dispatch(asyncGetMovieListDetail(id));
@@ -36,7 +36,7 @@ function Detail() {
 
   useEffect(() => {
     dispatch(commentList(id));
-  }, [comments]);
+  }, []);
 
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
@@ -61,8 +61,7 @@ function Detail() {
           <InputComment
             type="text"
             placeholder="댓글을 입력해 주세요."
-            onChange={setInputComment}
-          ></InputComment>
+            onChange={setInputComment}></InputComment>
           <SaveButton>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>
