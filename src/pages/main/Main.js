@@ -6,8 +6,10 @@ import { MainWrap, MainListContainer } from './MainStyled';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { asyncGetMovieList } from '../../redux/modules/movieList';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const movieList = useSelector((state) => state.movieList.movieList);
 
@@ -24,7 +26,11 @@ const Main = () => {
       <MainListContainer onclick={() => {}}>
         {movieList.map((item, index) => {
           return (
-            <MainList key={`${index}_${index.movieTitle}`} movieList={item} />
+            <MainList
+              key={`${index}_${index.movieTitle}`}
+              movieList={item}
+              onClick={() => navigate(`/detail/${item.id}`)}
+            />
           );
         })}
       </MainListContainer>
