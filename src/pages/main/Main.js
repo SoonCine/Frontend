@@ -1,75 +1,36 @@
-
 import React from 'react';
-import { useState } from 'react';
 import MainHeader from './MainHeader';
 import MainList from './MainList';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { asyncGetMovieList } from '../../redux/modules/movieList';
 
 const Main = () => {
-  const [movieList, setMovieList] = useState([
-    {
-      id: 0,
-      movieTitle: "올드보이",
-      movieDate: "22/8/14",
-      movieImage:
-        "https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg",
-      likeCount: "2",
-    },
-    {
-      id: 1,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 2,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 3,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 4,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 5,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-  ]);
+  const dispatch = useDispatch();
+  const movieList = useSelector((state) => state.movieList.movieList);
+
+  console.log(movieList);
+  useEffect(() => {
+    dispatch(asyncGetMovieList());
+  }, []);
 
   return (
     <MainWrap>
       <MainHeader />
 
-      <MainNav>환영합니다. 배성열</MainNav>
+      <MainNav>
+        <p>환영합니다. 배성열</p>
+        <button>로그아웃</button>
+      </MainNav>
 
-      <MainListContainer>
+      <MainListContainer onclick={() => {}}>
         {movieList.map((item, index) => {
           return (
             <MainList
-              key={item.id}
+              key={`${index}_${index.movieTitle}`}
               movieList={item}
-              setMovieList={setMovieList}
+              // setMovieList={setMovieList}
             />
           );
         })}
@@ -83,12 +44,14 @@ const MainWrap = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/mymagazinepjt.appspot.com/o/animeImg%2F1655318752651?alt=media&token=fd310dd0-8c16-43e2-ac33-60733fa82791'); */
   border: 2px solid white;
   height: 100vh;
+
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/mymagazinepjt.appspot.com/o/animeImg%2F1655318752651?alt=media&token=fd310dd0-8c16-43e2-ac33-60733fa82791');
 `;
 const MainNav = styled.div`
   justify-content: end;
+  display: flex;
 `;
 
 const MainListContainer = styled.div`

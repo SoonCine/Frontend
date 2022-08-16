@@ -1,6 +1,5 @@
-import React from "react";
-import { useState } from "react";
-
+import React from 'react';
+import { useState } from 'react';
 //styled import
 import {
   WholeDetail,
@@ -22,7 +21,7 @@ import {
   CommentNickname,
   CommentContent,
   DeleteButton,
-} from "./DetailStyled";
+} from './DetailStyled';
 
 function Detail() {
   //comment값에 글의 param값 나중에 추가하기
@@ -46,8 +45,7 @@ function Detail() {
         <CommentNbutton>
           <InputComment
             type="text"
-            placeholder="댓글을 입력해 주세요."
-          ></InputComment>
+            placeholder="댓글을 입력해 주세요."></InputComment>
           <SaveButton>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>
