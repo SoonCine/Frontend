@@ -56,7 +56,9 @@ const ListMovieImageBox = styled.div`
 const ListMovieImage = styled.img`
   width: 100%;
   max-width: 210px;
-  margin: 10px auto; //한빛님이 알려주신 방법 rem이 브라우저마다 다르게나오는거. 상대적인크기. px과 혼용x
+  height: 100%;
+  max-height: 300px;
+  margin: 12px auto; //한빛님이 알려주신 방법 rem이 브라우저마다 다르게나오는거. 상대적인크기. px과 혼용x
   //rem은 폰트에 많이씀. 이건 혼용해도됨.
 
   display: flex;
@@ -87,7 +89,7 @@ const ListDate = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  width: 215px;
+  width: 212px;
   box-sizing: border-box;
   border-radius: 10px;
   border: 2px solid lightsalmon;
@@ -99,25 +101,26 @@ const ListDate = styled.div`
 const ListContentsHead = styled.div`
   display: flex;
   justify-content: space-between;
-  max-height: 60px;
+  max-height: 50px;
   width: 215px;
   overflow: hidden;
   /* background-color: green; */
 
   h3 {
+    width: 160px;
     max-width: 160px;
     max-height: 60px;
     align-items: center;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0.5px;
-    margin: 18px 2px 1px 0px;
+    margin: 16px 2px 1px 0px;
     /* text-overflow: ellipsis; */
     /* background-color: white; */
   }
   p {
     align-items: center;
-    font-size: 16px;
+    font-size: 18px;
     /* background-color: gray; */
   }
 `;
@@ -125,8 +128,8 @@ const ListContentsHead = styled.div`
 const ListContentLike = styled.div`
   align-items: center;
   display: flex;
-  min-height: 60px;
-  min-width: 60px;
+  min-height: 50px;
+  min-width: 50px;
   /* background-color: pink; */
 `;
 
