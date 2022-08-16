@@ -24,7 +24,7 @@ import {
   ScrollDiv,
 } from './DetailStyled';
 
-import Comment from '../../component/comment/comment';
+import Comment from '../../component/comment/Comment';
 
 function Detail() {
   const dispatch = useDispatch();
