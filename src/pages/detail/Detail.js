@@ -5,6 +5,7 @@ import { addCommentThunk } from '../../redux/modules/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Comment from '../../component/comment/comment';
+
 //styled import
 import {
   WholeDetail,
@@ -27,6 +28,7 @@ import {
 function Detail() {
   const dispatch = useDispatch();
   const [comment, setComment] = useInput('');
+
   const param = useParams();
   const taken_comment = useSelector((state) => state.comment.comment);
 
@@ -74,6 +76,7 @@ function Detail() {
         </CommentNbutton>
         <hr></hr>
         <ScrollDiv>
+
           {taken_comment.map((item, i) => (
             <Comment comment={item} key={i} />
           ))}

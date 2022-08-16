@@ -1,10 +1,10 @@
-import React from 'react';
-import MainHeader from './MainHeader';
-import MainList from './MainList';
-import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { asyncGetMovieList } from '../../redux/modules/movieList';
+import React from "react";
+import MainHeader from "./MainHeader";
+import MainList from "./MainList";
+import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { asyncGetMovieList } from "../../redux/modules/movieList";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const MainWrap = styled.div`
   border: 2px solid white;
   min-height: 100vh;
 
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/mymagazinepjt.appspot.com/o/animeImg%2F1655318752651?alt=media&token=fd310dd0-8c16-43e2-ac33-60733fa82791');
+  background-image: url("https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg");
 `;
 const MainNav = styled.div`
   justify-content: end;
