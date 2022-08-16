@@ -4,7 +4,7 @@ import useInput from '../../hook/hook';
 import { addCommentThunk } from '../../redux/modules/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Comment from '../../component/comment/comment';
+import Comment from '../../component/comment/Comment';
 
 //styled import
 import {
