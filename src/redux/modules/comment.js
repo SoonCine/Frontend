@@ -6,9 +6,9 @@ const initialState = { comment: ['test'] };
 export const addCommentThunk = createAsyncThunk(
   'user/commentThunk',
   async (payload, thunkAPI) => {
-    // console.log(payload)
-    const data = await axios.post();
-    console.log(payload);
+    console.log(payload)
+    // const data = await axios.post();
+    // console.log("dd");
 
     return thunkAPI.fulfillWithValue(payload);
   }

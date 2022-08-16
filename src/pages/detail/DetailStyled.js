@@ -92,7 +92,8 @@ export const SaveButton = styled.button`
   margin: 0 0 0 20px;
   cursor: pointer;
 `;
-export const CommentList = styled.div``;
+export const CommentList = styled.div`
+`;
 export const IndivComment = styled.div`
   border: 1px solid black;
   border-radius: 10px;
@@ -154,7 +155,10 @@ export const CommentDeleteButton = styled.button`
   height: 22px;
   margin-top: 5px;
 `;
-
+export const ScrollDiv = styled.div`
+height: 300px;
+overflow: scroll;
+`
 {
   /* <CommentDiv>
 <CommentArea>
