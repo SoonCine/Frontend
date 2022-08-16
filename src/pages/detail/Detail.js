@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import useInput from '../../hook/hook';
-import addCommentThunk from '../../redux/modules/comment';
+import { addCommentThunk } from '../../redux/modules/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Comment from '../../component/comment/Comment';
-//styled import
+import Comment from '../../component/comment/comment';
 
+//styled import
 import {
   WholeDetail,
   ImageNinfo,
@@ -22,26 +22,23 @@ import {
   CommentNbutton,
   InputComment,
   SaveButton,
-  // CommentList,
-  // IndivComment,
-  // CommentNickname,
-  // CommentContent,
-  // DeleteButton,
+  ScrollDiv,
 } from './DetailStyled';
 
 function Detail() {
   const dispatch = useDispatch();
-  const [comment] = useInput('');
+  const [comment, setComment] = useInput('');
+
   const param = useParams();
   const taken_comment = useSelector((state) => state.comment.comment);
 
-  const comment_data = {
-    comment: comment,
-    movie_num: param,
-    // nickname : 토큰속 닉네임
-  };
-  // console.log(taken_comment);
-
+  // const comment_data = {
+  //   comment: comment,
+  //   movie_num: param,
+  // nickname : 토큰속 닉네임
+  // };
+  console.log(taken_comment);
+  // console.log(comment)
   const addComment = () => {
     dispatch(addCommentThunk(comment));
   };
@@ -68,15 +65,16 @@ function Detail() {
         <CommentNbutton>
           <InputComment
             type="text"
-            placeholder="댓글을 입력해 주세요."></InputComment>
-          <SaveButton>등록</SaveButton>
+            placeholder="댓글을 입력해 주세요."
+            onChange={setComment}></InputComment>
+          <SaveButton onClick={addComment}>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>
-        <div>
+        <ScrollDiv>
           {taken_comment.map((item, i) => (
             <Comment comment={item} key={i} />
           ))}
-        </div>
+        </ScrollDiv>
       </CommentBox>
     </WholeDetail>
   );

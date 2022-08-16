@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import '../../static//fonts/fonts.css';
+import styled from "styled-components";
+import "../../static//fonts/fonts.css";
 
 export const WholeDetail = styled.div`
   /* width: 700px;
@@ -92,7 +92,8 @@ export const SaveButton = styled.button`
   margin: 0 0 0 20px;
   cursor: pointer;
 `;
-export const CommentList = styled.div``;
+export const CommentList = styled.div`
+`;
 export const IndivComment = styled.div`
   border: 1px solid black;
   border-radius: 10px;
@@ -109,8 +110,8 @@ export const CommentNickname = styled.p`
   padding-top: 5px;
 `;
 export const CommentContent = styled.p`
-padding-left: 12px;
-padding-top: 5px;
+  padding-left: 12px;
+  padding-top: 5px;
   width: 300px;
   height: 30px;
   border: 1px solid black;
@@ -154,7 +155,10 @@ export const CommentDeleteButton = styled.button`
   height: 22px;
   margin-top: 5px;
 `;
-
+export const ScrollDiv = styled.div`
+height: 300px;
+overflow: scroll;
+`
 {
   /* <CommentDiv>
 <CommentArea>
