@@ -40,7 +40,6 @@ const SignUp = () => {
     password: password,
     passwordConfirm: password,
   };
-  console.log(E_Check, N_Check);
 
   // password === checkPw ? setP_check(true) : setP_check(false)
   // console.log(P_Check)
@@ -56,7 +55,6 @@ const SignUp = () => {
       axios
         .post('http://54.180.89.34:8080/api/members/emailcheck', checkEmail)
         .then((res) => {
-          console.log(res.data.data);
           if (res.data.data) {
             alert('사용 가능한 이메일 입니다.');
             setE_check(res.data.data);
@@ -72,7 +70,6 @@ const SignUp = () => {
           checkNickname
         )
         .then((res) => {
-          console.log(res.data.data);
           if (res.data.data) {
             alert('사용 가능한 닉네임 입니다.');
             setN_Check(res.data.data);
@@ -83,7 +80,6 @@ const SignUp = () => {
         });
     }
   };
-
 
   return (
     <MainBody>

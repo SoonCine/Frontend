@@ -1,18 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import HeartLike from "./HeartLike";
+import React from 'react';
+import styled from 'styled-components';
+import HeartLike from './HeartLike';
+import { useNavigate } from 'react-router-dom';
 
 const MainList = ({ movieList }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const title = movieList.movieTitle;
   console.log(movieList);
   const lengthOverCut = (str, maxLength) => {
-    return str.length > maxLength ? str.slice(0, maxLength - 1) + "..." : str;
+    return str.length > maxLength ? str.slice(0, maxLength - 1) + '...' : str;
   };
 
   return (
-    <ListWrap>
+    <ListWrap onClick={() => navigate(`/detail/${movieList.id}`)}>
       <ListMovieImageBox>
         <ListMovieImage src={movieList.img} alt="profile" />
       </ListMovieImageBox>

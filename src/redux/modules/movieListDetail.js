@@ -11,7 +11,8 @@ const initialState = {
 };
 
 export const asyncGetMovieListDetail = createAsyncThunk(
-  'getMovieList',
+  'getMovieList_',
+  // 이거 이름 겹치면 안됨!!
   async (payload, thunkAPI) => {
     try {
       const data = await axios.get(url_post + `/${payload}`);
