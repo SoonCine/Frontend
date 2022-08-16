@@ -1,6 +1,6 @@
-import React from "react";
-import { HeartFilled, HeartOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import React from 'react';
+import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 const HeartLike = ({ count }) => {
   const [heartLike, setHeartLike] = useState({ ischecked: false });
@@ -13,12 +13,12 @@ const HeartLike = ({ count }) => {
 
   return (
     <div>
-      {count !== "0" ? (
+      {count !== 0 ? (
         <HeartFilled
-          style={{ color: "red", fontSize: "17px", margin: "3px 5px" }}
+          style={{ color: 'red', fontSize: '17px', margin: '3px 5px' }}
         />
       ) : (
-        <HeartOutlined style={{ fontSize: "17px", margin: "3px 5px" }} />
+        <HeartOutlined style={{ fontSize: '17px', margin: '3px 5px' }} />
       )}
     </div>
   );
