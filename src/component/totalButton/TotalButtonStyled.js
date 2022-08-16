@@ -13,4 +13,7 @@ outline: none;
     cursor: pointer;
     outline: 2px solid black;
 }
+&:focus{
+    outline: 2px solid black;
+}
 `
