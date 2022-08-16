@@ -6,7 +6,7 @@ const MainList = ({ movieList }) => {
   // const navigate = useNavigate();
 
   const title = movieList.movieTitle;
-
+  console.log(movieList);
   const lengthOverCut = (str, maxLength) => {
     return str.length > maxLength ? str.slice(0, maxLength - 1) + '...' : str;
   };
@@ -23,9 +23,9 @@ const MainList = ({ movieList }) => {
           <h3>{lengthOverCut(title, 8)}</h3>
           <ListContentLike>
             {/* 하트 카운트 */}
-            <HeartLike count={movieList.likeCount} />
+            <HeartLike count={movieList.likes_count} />
             {/* 하트 카운트 숫자 */}
-            <p> {movieList.like}</p>
+            <p> {movieList.likes_count}</p>
           </ListContentLike>
         </ListContentsHead>
       </ListContents>

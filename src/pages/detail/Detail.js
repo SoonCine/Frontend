@@ -42,16 +42,6 @@ function Detail() {
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
   const comments = useSelector((state) => state.comment.commentList);
 
-  console.log(comments);
-  // const comment_data = {
-  //   comment: comment,
-  //   movie_num: param,
-  // nickname : 토큰속 닉네임
-  // };
-
-  // comment값에 글의 param값 나중에 추가하기
-  // comment값이 서버
-
   return (
     <WholeDetail>
       <ImageNinfo>
@@ -63,7 +53,7 @@ function Detail() {
           <hr></hr>
           <MovieGenre>{movie.movieAge}</MovieGenre>
           <MovieReleaseDate>{movie.movieOpenDate}</MovieReleaseDate>
-          <Likes> ❤️ Likes </Likes>
+          <Likes> {movie.Likes}</Likes>
         </MovieInfo>
       </ImageNinfo>
       <CommentBox>
