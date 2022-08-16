@@ -74,8 +74,7 @@ const Login = () => {
               <TotalButton
                 onClick={(e) => {
                   sign(e);
-                }}
-              >
+                }}>
                 로그인
               </TotalButton>
             </LoginDiv>
@@ -83,8 +82,7 @@ const Login = () => {
               <TotalButton
                 onClick={() => {
                   navigate('/signup');
-                }}
-              >
+                }}>
                 회원가입
               </TotalButton>
             </SignUpDiv>

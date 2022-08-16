@@ -22,6 +22,24 @@ export const commentList = createAsyncThunk(
   }
 );
 
+export const addCommentThunk = createAsyncThunk(
+  'addCommentThunk',
+  async (payload,thunkAPI) => {
+    const data = await axios.post(url_post,payload).then((res)=>console.log(res))
+  }
+)
+
+export const deleteCommentThunk = createAsyncThunk(
+  'comment/deleteComment',
+  async (payload, thunkAPI) => {
+    await axios
+      .delete(`${URL}/comment/${payload}`)
+      .then((res) => res.data)
+      .catch((err) => console.err(err));
+    return payload;
+  }
+);
+
 const commentSlice = createSlice({
   name: 'comment',
   initialState: initialState,
@@ -34,6 +52,9 @@ const commentSlice = createSlice({
     [commentList.rejected]: (state, action) => {
       // console.log(action);
     },
+    [deleteCommentThunk.fulfilled]: (state, action) => {
+
+    }
   },
 });
 
