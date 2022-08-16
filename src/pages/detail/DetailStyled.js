@@ -8,8 +8,9 @@ export const WholeDetail = styled.div`
   border: 1px solid black;
   margin: 20px;
   justify-content: center; */
-  background-color: lightgray;
+  /* background-color: lightgray; */
   /* width: 1000px; */
+  background-image: url("https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg");
   display: flex;
   flex-direction: column;
   justify-content: center;
