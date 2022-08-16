@@ -1,26 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HeartFilled } from '@ant-design/icons';
+import HeartLike from './HeartLike';
 
 const MainList = ({ movieList, setMovieList }) => {
   return (
     <ListWrap>
       <ListMovieImageBox>
-        <ListMovieImage src={movieList.movieImage} alt="profile" />
+        <ListMovieImage src={movieList.img} alt="profile" />
       </ListMovieImageBox>
       <ListContents>
         <ListContentsHead>
           <h3>{movieList.movieTitle}</h3>
-
           <ListContentLike>
-            <HeartFilled
-              style={{ color: 'red', fontSize: '18px', margin: '3px 5px' }}
-            />
-            <p> {movieList.likeCount}</p>
+            {/* 하트 카운트 */}
+            <HeartLike count={movieList.likeCount} />
+            {/* 하트 카운트 숫자 */}
+            <p> {movieList.like}</p>
           </ListContentLike>
         </ListContentsHead>
 
-        <ListDate>개봉일:{movieList.movieDate}</ListDate>
+        <ListDate>{movieList.movieOpenDate}</ListDate>
       </ListContents>
     </ListWrap>
   );
@@ -56,8 +55,6 @@ const ListContents = styled.div`
   align-items: center;
   margin: 10px 10px;
   padding: 10px;
-
-  border: 2px solid black;
 `;
 
 const ListContentsHead = styled.div`
