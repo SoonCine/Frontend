@@ -1,16 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = {comment : ["test"]};
+const url_post = process.env.REACT_APP_URL + `/api/post/movieupcomming/`;
 
-export const addCommentThunk = createAsyncThunk(
-  'user/commentThunk',
+const initialState = {
+  commentList: [],
+};
+
+export const commentList = createAsyncThunk(
+  'getCommentList',
   async (payload, thunkAPI) => {
-// console.log(payload)
-// const data = await axios.post()
-console.log(payload)
-
- return thunkAPI.fulfillWithValue(payload);
+    // payload = id
+    try {
+      const data = await axios.get(url_post + `${payload}`);
+      return thunkAPI.fulfillWithValue(data.data.data.commentResponseDtoList);
+      // return console.log(data.data.data.commentResponseDtoList);
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
+    // console.log(thunkAPI.fulfillWithValue);
   }
 );
 
@@ -18,10 +26,15 @@ const commentSlice = createSlice({
   name: 'comment',
   initialState: initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(addCommentThunk.fulfilled, (state, action) => {
-      state.comment = [...state.comment, action.payload];
-    });}
+  extraReducers: {
+    [commentList.fulfilled]: (state, action) => {
+      // console.log(action.payload);
+      state.commentList = action.payload;
+    },
+    [commentList.rejected]: (state, action) => {
+      // console.log(action);
+    },
+  },
 });
 
 // export const { userSlice } = userSlice.actions;

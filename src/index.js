@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux/es/exports';
 import store from './redux/configStore';
+import setAuthorizationToken from './token/setAuthorizationToken/setAuthorizationToken';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+setAuthorizationToken(localStorage.JwtToken);
+
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

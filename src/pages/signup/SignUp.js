@@ -4,6 +4,7 @@ import { useState } from 'react';
 import useInput from '../../hook/hook';
 import axios from 'axios';
 import checkEmailThunk from '../../redux/modules/user';
+import { useNavigate } from 'react-router-dom';
 
 //styled import
 import {
@@ -30,48 +31,59 @@ const SignUp = () => {
   const [N_Check, setN_Check] = useState(false);
   const [P_Check, setP_check] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const checkEmail = { email: email };
+  const checkNickname = { nickname: nickName };
+  const signUpData = {
+    nickname: nickName,
+    email: email,
+    password: password,
+    passwordConfirm: password,
+  };
+  console.log(E_Check, N_Check);
 
   // password === checkPw ? setP_check(true) : setP_check(false)
   // console.log(P_Check)
-  const newAccount = {
-    email: email,
-    password: password,
-    nickName: nickName,
-  };
 
   const signUpCheck = (event) => {
     event.preventDefault();
     if (N_Check && E_Check) {
-      dispatch(checkEmailThunk(newAccount));
-    } else {
-      alert('중복확인을 해주세요');
-    }
-    if (!E_Check) {
       axios
-        .post('https://jsonplaceholder.typicode.com/todos', email)
+        .post('http://54.180.89.34:8080/api/member/signup', signUpData)
+        .then(() => navigate('/'));
+    }
+    if (E_Check === false) {
+      axios
+        .post('http://54.180.89.34:8080/api/members/emailcheck', checkEmail)
         .then((res) => {
-          if (res.data) {
+          console.log(res.data.data);
+          if (res.data.data) {
             alert('사용 가능한 이메일 입니다.');
-            setE_check(res.data);
+            setE_check(res.data.data);
           } else {
             alert('이미 가입한 이메일 입니다.');
-            setE_check(res.data);
+            setE_check(res.data.data);
           }
         });
-    } else if (!N_Check) {
+    } else if (N_Check === false) {
       axios
-        .post('https://jsonplaceholder.typicode.com/todos', nickName)
+        .post(
+          'http://54.180.89.34:8080/api/members/nicknamecheck',
+          checkNickname
+        )
         .then((res) => {
-          if (res.data) {
+          console.log(res.data.data);
+          if (res.data.data) {
             alert('사용 가능한 닉네임 입니다.');
-            setN_Check(res.data);
+            setN_Check(res.data.data);
           } else {
             alert('이미 사용중인 닉네임 입니다.');
-            setE_check(res.data);
+            setE_check(res.data.data);
           }
         });
     }
   };
+
 
   return (
     <MainBody>
@@ -96,7 +108,7 @@ const SignUp = () => {
             value={password}
             onChange={setPassword}
             type="password"
-            required
+            // required
           />
         </PwArea>
 
@@ -107,7 +119,7 @@ const SignUp = () => {
             value={checkPw}
             onChange={setCheckPw}
             type="password"
-            required
+            // required
           />
         </PwCheckArea>
 
@@ -117,7 +129,8 @@ const SignUp = () => {
             placeholder="닉네임"
             value={nickName}
             onChange={setNickName}
-            required
+            maxLength={8}
+            // required
           />
           <IdButton>중복확인</IdButton>
         </NicknameArea>

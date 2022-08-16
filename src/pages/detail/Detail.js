@@ -1,11 +1,11 @@
-//react import
 import React from 'react';
+import { useState, useEffect } from 'react';
+import useInput from '../../hook/hook';
 import { addCommentThunk } from '../../redux/modules/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import useInput from '../../hook/hook';
-//styled import
-import Comment from '../../component/comment/comment'
+import { commentList } from '../../redux/modules/comment';
+import { asyncGetMovieListDetail } from '../../redux/modules/movieListDetail';
 import {
   WholeDetail,
   ImageNinfo,
@@ -21,50 +21,39 @@ import {
   CommentNbutton,
   InputComment,
   SaveButton,
-  CommentList,
-  IndivComment,
-  CommentNickname,
-  CommentContent,
-  DeleteButton,
-  CommentDiv,
-  CommentArea,
-  NicknameArea,
-  ContentArea,
-  CommentDeleteButton
+  ScrollDiv,
 } from './DetailStyled';
+
+import Comment from '../../component/comment/comment';
 
 function Detail() {
   const dispatch = useDispatch();
-  const [comment, setComment] = useInput('');
-  const param = useParams();
-  const taken_comment = useSelector((state) => state.comment.comment);
-  const comment_data = {
-    comment: comment,
-    movie_num: param,
-    // nickname : 토큰속 닉네임
-  };
-  console.log(taken_comment);
-  const addComment = () => {
-    dispatch(addCommentThunk(comment));
-  };
+  const [inputComment, setInputComment] = useInput('');
 
-  //comment값에 글의 param값 나중에 추가하기
-  //comment값이 서버
+  useEffect(() => {
+    dispatch(asyncGetMovieListDetail(id));
+  }, []);
+
+  useEffect(() => {
+    dispatch(commentList(id));
+  }, []);
+
+  const { id } = useParams();
+  const movie = useSelector((state) => state.movieListDetail.movieListDetail);
+  const comments = useSelector((state) => state.comment.commentList);
 
   return (
     <WholeDetail>
-      <button onClick={addComment}>테스트</button>
       <ImageNinfo>
         <ImageBox>
-          <MovieImage src="https://mblogthumb-phinf.pstatic.net/MjAxOTAxMTJfMzMg/MDAxNTQ3MjczNjczMjc1.8m8t9fNnOr87ggvT00zTmlbACX6EmnmU_kw_lr9pj5Yg.ZTqgm4WTeWyTNDKCECB7dW2zao5QjPX0GFpTcpmCYMEg.JPEG.mchumini/FMV-308.jpg?type=w800" />
+          <MovieImage src={movie.img} />
         </ImageBox>
         <MovieInfo>
-          <MovieTitle>영화 제목</MovieTitle>
-          <MovieEngtitle>영어 제목</MovieEngtitle>
+          <MovieTitle>{movie.movieTitle}</MovieTitle>
           <hr></hr>
-          <MovieGenre>장르</MovieGenre>
-          <MovieReleaseDate>개봉일</MovieReleaseDate>
-          <Likes> ❤️ Likes </Likes>
+          <MovieGenre>{movie.movieAge}</MovieGenre>
+          <MovieReleaseDate>{movie.movieOpenDate}</MovieReleaseDate>
+          <Likes> {movie.Likes}</Likes>
         </MovieInfo>
       </ImageNinfo>
       <CommentBox>
@@ -72,14 +61,15 @@ function Detail() {
           <InputComment
             type="text"
             placeholder="댓글을 입력해 주세요."
-            onChange={setComment}
-          ></InputComment>
-          <SaveButton onClick={addComment}>등록</SaveButton>
+            onChange={setInputComment}></InputComment>
+          <SaveButton>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>
-        <div>
-        {taken_comment.map((item)=>(<Comment comment={item}/>))}
-        </div>
+        <ScrollDiv>
+          {comments.map((item, i) => (
+            <Comment comment={item} key={i} />
+          ))}
+        </ScrollDiv>
       </CommentBox>
     </WholeDetail>
   );

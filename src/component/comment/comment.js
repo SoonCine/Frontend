@@ -7,15 +7,16 @@ import {
   DeleteButton,
 } from '../../pages/detail/DetailStyled';
 
-const Comment = (props) =>{
-    return(
+const Comment = ({ comment }) => {
+  return (
     <CommentList>
-    <IndivComment>
-      <CommentNickname> 닉네임 </CommentNickname>
-      <CommentContent> {props.comment} </CommentContent>
-      <DeleteButton>🗑️</DeleteButton>
-    </IndivComment>
-  </CommentList>)
-}
+      <IndivComment>
+        <CommentNickname> {comment.author} </CommentNickname>
+        <CommentContent> {comment.content} </CommentContent>
+        <DeleteButton>🗑️</DeleteButton>
+      </IndivComment>
+    </CommentList>
+  );
+};
 
-export default Comment
+export default Comment;

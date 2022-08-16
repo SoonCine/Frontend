@@ -3,7 +3,8 @@ import { useDispatch, useEffect } from 'react-redux/es/exports';
 import { checkEmailThunk } from '../../redux/modules/user';
 import { useNavigate } from 'react-router-dom';
 import useInput from '../../hook/hook';
-import axios from 'axios'
+import axios from 'axios';
+import setAuthorizationToken from '../../token/setAuthorizationToken/setAuthorizationToken';
 //styled import
 import {
   MainForm,
@@ -12,7 +13,6 @@ import {
   IdInputArea,
   PwInputArea,
   ButtonTotalArea,
-
   LoginDiv,
   SignUpDiv,
 } from './SignInStyled';
@@ -26,17 +26,29 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const signCheck = (token) => {
+    navigate('/main');
+    setAuthorizationToken(token);
+  };
 
-  const sign =  (event) => {
+  const sign = (event) => {
     event.preventDefault();
-    axios.post('https://jsonplaceholder.typicode.com/todos',userInfomation).then((res)=>{res.data ? navigate('/main') : alert('이메일 비밀번호를 다시 확인해주세요.')});
-    
+    axios
+      .post('http://54.180.89.34:8080/api/member/login', userInfomation)
+      .then((res) => {
+        const token = res.headers.authorization;
+        localStorage.setItem('JwtToken', token);
+        localStorage.setItem('Nickname', res.data.data);
+        res.data.success
+          ? signCheck(token)
+          : alert('이메일 비밀번호를 다시 확인해주세요.');
+      });
   };
 
   return (
     <>
       <MainBody>
-        <TitleDiv>순씨네</TitleDiv>
+        <TitleDiv></TitleDiv>
         <MainForm onSubmit={(event) => sign(event)}>
           <IdInputArea>
             <TotalInput
@@ -50,6 +62,7 @@ const Login = () => {
           <PwInputArea>
             <TotalInput
               placeholder="PW"
+              type="password"
               value={password}
               onChange={setPassword}
               required

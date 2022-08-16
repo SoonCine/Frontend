@@ -2,7 +2,15 @@ import styled from 'styled-components';
 import '../../static//fonts/fonts.css';
 
 export const WholeDetail = styled.div`
-  background-color: white;
+  /* width: 700px;
+  height: 500px;
+  padding: 30px;
+  border: 1px solid black;
+  margin: 20px;
+  justify-content: center; */
+  /* background-color: lightgray; */
+  /* width: 1000px; */
+  background-image: url("https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,7 +154,10 @@ export const CommentDeleteButton = styled.button`
   height: 22px;
   margin-top: 5px;
 `;
-
+export const ScrollDiv = styled.div`
+  height: 300px;
+  overflow: scroll;
+`;
 {
   /* <CommentDiv>
 <CommentArea>
