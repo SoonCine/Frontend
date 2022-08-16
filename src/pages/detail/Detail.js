@@ -1,15 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import useInput from '../../hook/hook'
-import addCommentThunk from '../../redux/modules/comment'
+import useInput from '../../hook/hook';
+import addCommentThunk from '../../redux/modules/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import Comment from '../../component/comment/Comment';
 //styled import
-
-import Comment from '../../component/comment/comment';
-import useInput from '../../hook/hook';
-import { addCommentThunk } from '../../redux/modules/comment';
-import { useParams } from 'react-router-dom';
 
 import {
   WholeDetail,
@@ -77,8 +73,8 @@ function Detail() {
         </CommentNbutton>
         <hr></hr>
         <div>
-          {taken_comment.map((item,i) => (
-            <Comment comment={item} key={i}/>
+          {taken_comment.map((item, i) => (
+            <Comment comment={item} key={i} />
           ))}
         </div>
       </CommentBox>
