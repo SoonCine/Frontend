@@ -1,26 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HeartFilled } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
-const MainList = ({ movieList, setMovieList }) => {
+const MainList = ({ movieOpenDate, movieTitle, img, key }) => {
+  const navigate = useNavigate();
   return (
     <ListWrap>
       <ListMovieImageBox>
-        <ListMovieImage src={movieList.movieImage} alt="profile" />
+        <ListMovieImage
+          src={img}
+          alt="profile"
+          // onClick={navigate(`/detail:${key}`)}
+        />
       </ListMovieImageBox>
       <ListContents>
         <ListContentsHead>
-          <h3>{movieList.movieTitle}</h3>
+          <h3>{movieTitle}</h3>
 
           <ListContentLike>
             <HeartFilled
               style={{ color: 'red', fontSize: '18px', margin: '3px 5px' }}
             />
-            <p> {movieList.likeCount}</p>
+            <p> </p>
           </ListContentLike>
         </ListContentsHead>
 
-        <ListDate>개봉일:{movieList.movieDate}</ListDate>
+        <ListDate>개봉일:{movieOpenDate}</ListDate>
       </ListContents>
     </ListWrap>
   );

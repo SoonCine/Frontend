@@ -1,78 +1,47 @@
-
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MainHeader from './MainHeader';
 import MainList from './MainList';
 import styled from 'styled-components';
+import axios from 'axios';
+import { useDispatch } from 'react-redux/es/exports';
+import { movieThunk } from '../../redux/modules/movie';
+import user from '../../redux/modules/user';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
-  const [movieList, setMovieList] = useState([
-    {
-      id: 0,
-      movieTitle: "올드보이",
-      movieDate: "22/8/14",
-      movieImage:
-        "https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg",
-      likeCount: "2",
-    },
-    {
-      id: 1,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 2,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 3,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 4,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-    {
-      id: 5,
-      movieTitle: '올드보이',
-      movieDate: '22/8/14',
-      movieImage:
-        'https://breed-assets.wisdompanel.com/dog/poodle-miniature-toy/poodle-miniature-toy1.jpg',
-      likeCount: '2',
-    },
-  ]);
+  const [list, setList] = useState(null);
+  const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   axios.get('http://54.180.89.34:8080/api/movie/upcomming').then((res) => {
+  //     setList(res.data.data.slice(0,12));
+  //   });
+  // }, []);
   return (
     <MainWrap>
+      <button
+        onClick={() => {
+          dispatch(movieThunk());
+        }}
+      >
+        테스트
+      </button>
       <MainHeader />
 
-      <MainNav>환영합니다. 배성열</MainNav>
+      <MainNav>환영합니다.</MainNav>
 
       <MainListContainer>
-        {movieList.map((item, index) => {
+        {/* {list.map((item) => {
           return (
             <MainList
-              key={item.id}
-              movieList={item}
-              setMovieList={setMovieList}
+              // key={item.id}
+              img={item.img}
+              movieTitle={item.movieTitle}
+              movieOpenDate={item.movieOpenDate.split(" ")[0]}
             />
           );
-        })}
+        })} */}
       </MainListContainer>
     </MainWrap>
   );
