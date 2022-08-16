@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const url_post =
   process.env.REACT_APP_URL +
@@ -11,10 +11,12 @@ const initialState = {
 };
 
 export const asyncGetMovieList = createAsyncThunk(
-  'getMovieList',
+  "getMovieList",
   async (payload, thunkAPI) => {
     try {
       const data = await axios.get(url_post);
+      console.log(data);
+
       return thunkAPI.fulfillWithValue(data.data.data);
       // return console.log(data);
       // data.data.data 가 payload
@@ -26,7 +28,7 @@ export const asyncGetMovieList = createAsyncThunk(
 );
 
 export const movieSlice = createSlice({
-  name: 'movieList',
+  name: "movieList",
   initialState,
   reducers: {},
   extraReducers: {
