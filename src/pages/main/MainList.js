@@ -6,7 +6,7 @@ const MainList = ({ movieList, setMovieList }) => {
   return (
     <ListWrap>
       <ListMovieImageBox>
-        <ListMovieImage src={movieList.movieImage} alt="profile" />
+        <ListMovieImage src={movieList.img} alt="profile" />
       </ListMovieImageBox>
       <ListContents>
         <ListContentsHead>
@@ -15,11 +15,11 @@ const MainList = ({ movieList, setMovieList }) => {
             {/* 하트 카운트 */}
             <HeartLike count={movieList.likeCount} />
             {/* 하트 카운트 숫자 */}
-            <p> {movieList.likeCount}</p>
+            <p> {movieList.like}</p>
           </ListContentLike>
         </ListContentsHead>
 
-        <ListDate>개봉일:{movieList.movieDate}</ListDate>
+        <ListDate>{movieList.movieOpenDate}</ListDate>
       </ListContents>
     </ListWrap>
   );

@@ -13,10 +13,13 @@ const HeartLike = ({ count }) => {
 
   return (
     <div>
-      <HeartFilled
-        style={{ color: 'red', fontSize: '18px', margin: '3px 5px' }}
-      />
-      <HeartOutlined style={{ fontSize: '18px', margin: '3px 5px' }} />
+      {count !== '0' ? (
+        <HeartFilled
+          style={{ color: 'red', fontSize: '18px', margin: '3px 5px' }}
+        />
+      ) : (
+        <HeartOutlined style={{ fontSize: '18px', margin: '3px 5px' }} />
+      )}
     </div>
   );
 };
