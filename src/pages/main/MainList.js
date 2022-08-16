@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import HeartLike from './HeartLike';
 
-const MainList = ({ movieOpenDate, movieTitle, img, key }) => {
-  const navigate = useNavigate();
+const MainList = ({ movieList }) => {
+  // const navigate = useNavigate();
   return (
     <ListWrap>
       <ListMovieImageBox>
@@ -61,6 +61,8 @@ const ListContents = styled.div`
 const ListContentsHead = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 200px;
+  overflow: hidden;
 
   h3 {
     margin: 0px;
