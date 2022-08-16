@@ -1,9 +1,9 @@
-import { React } from 'react';
-import { useDispatch, useEffect } from 'react-redux/es/exports';
-import { checkEmailThunk } from '../../redux/modules/user';
-import { useNavigate } from 'react-router-dom';
-import useInput from '../../hook/hook';
-import axios from 'axios';
+import { React } from "react";
+import { useDispatch, useEffect } from "react-redux/es/exports";
+import { checkEmailThunk } from "../../redux/modules/user";
+import { useNavigate } from "react-router-dom";
+import useInput from "../../hook/hook";
+import axios from "axios";
 //styled import
 import {
   MainForm,
@@ -14,13 +14,13 @@ import {
   ButtonTotalArea,
   LoginDiv,
   SignUpDiv,
-} from './SignInStyled';
-import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
-import { TotalInput } from '../../component/totalInput/TotalInputStyled';
+} from "./SignInStyled";
+import { TotalButton } from "../../component/totalButton/TotalButtonStyled";
+import { TotalInput } from "../../component/totalInput/TotalInputStyled";
 
 const Login = () => {
-  const [email, setEmail] = useInput('');
-  const [password, setPassword] = useInput('');
+  const [email, setEmail] = useInput("");
+  const [password, setPassword] = useInput("");
   const userInfomation = { email: email, password: password };
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,18 +28,18 @@ const Login = () => {
   const sign = (event) => {
     event.preventDefault();
     axios
-      .post('https://jsonplaceholder.typicode.com/todos', userInfomation)
+      .post("https://jsonplaceholder.typicode.com/todos", userInfomation)
       .then((res) => {
         res.data
-          ? navigate('/main')
-          : alert('이메일 비밀번호를 다시 확인해주세요.');
+          ? navigate("/main")
+          : alert("이메일 비밀번호를 다시 확인해주세요.");
       });
   };
 
   return (
     <>
       <MainBody>
-        <TitleDiv>순씨네</TitleDiv>
+        <TitleDiv></TitleDiv>
         <MainForm onSubmit={(event) => sign(event)}>
           <IdInputArea>
             <TotalInput
@@ -64,15 +64,17 @@ const Login = () => {
               <TotalButton
                 onClick={(e) => {
                   sign(e);
-                }}>
+                }}
+              >
                 로그인
               </TotalButton>
             </LoginDiv>
             <SignUpDiv>
               <TotalButton
                 onClick={() => {
-                  navigate('/signup');
-                }}>
+                  navigate("/signup");
+                }}
+              >
                 회원가입
               </TotalButton>
             </SignUpDiv>
