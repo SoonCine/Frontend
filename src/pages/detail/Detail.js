@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 //react import
 import React from 'react';
 import { addCommentThunk } from '../../redux/modules/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import useInput from '../../hook/hook';
+=======
+import React from 'react';
+import { useState } from 'react';
+>>>>>>> 22839c15188500a8ecb107fae756bef6ecc503ba
 //styled import
 import Comment from '../../component/comment/comment'
 import {
@@ -26,11 +31,14 @@ import {
   CommentNickname,
   CommentContent,
   DeleteButton,
+<<<<<<< HEAD
   CommentDiv,
   CommentArea,
   NicknameArea,
   ContentArea,
   CommentDeleteButton
+=======
+>>>>>>> 22839c15188500a8ecb107fae756bef6ecc503ba
 } from './DetailStyled';
 
 function Detail() {
@@ -71,10 +79,15 @@ function Detail() {
         <CommentNbutton>
           <InputComment
             type="text"
+<<<<<<< HEAD
             placeholder="댓글을 입력해 주세요."
             onChange={setComment}
           ></InputComment>
           <SaveButton onClick={addComment}>등록</SaveButton>
+=======
+            placeholder="댓글을 입력해 주세요."></InputComment>
+          <SaveButton>등록</SaveButton>
+>>>>>>> 22839c15188500a8ecb107fae756bef6ecc503ba
         </CommentNbutton>
         <hr></hr>
         <div>
