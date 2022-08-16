@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import "../../static//fonts/fonts.css";
+import styled from 'styled-components';
+import '../../static//fonts/fonts.css';
 
 export const WholeDetail = styled.div`
   /* width: 700px;
@@ -110,8 +110,8 @@ export const CommentNickname = styled.p`
   padding-top: 5px;
 `;
 export const CommentContent = styled.p`
-  padding-left: 12px;
-  padding-top: 5px;
+padding-left: 12px;
+padding-top: 5px;
   width: 300px;
   height: 30px;
   border: 1px solid black;

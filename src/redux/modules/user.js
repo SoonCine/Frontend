@@ -7,7 +7,7 @@ export const checkEmailThunk = createAsyncThunk(
   'user/checkEmailThunk',
   async (payload, thunkAPI) => {
 console.log(payload)
-console.log(thunkAPI.getState())
+    // axios.post('http://localhost:8080/api/member/signup',payload)
 
     return thunkAPI.fulfillWithValue();
   }

@@ -28,12 +28,13 @@ const Login = () => {
   const sign = (event) => {
     event.preventDefault();
     axios
-      .post('https://jsonplaceholder.typicode.com/todos', userInfomation)
-      .then((res) => {
-        res.data
+      .post('http://54.180.89.34:8080/api/member/login', userInfomation)
+      .then((res) =>
+        res.data.success
+        // ? console.log(res)
           ? navigate('/main')
-          : alert('이메일 비밀번호를 다시 확인해주세요.');
-      });
+          : alert('이메일 비밀번호를 다시 확인해주세요.')
+      );
   };
 
   return (
@@ -53,6 +54,7 @@ const Login = () => {
           <PwInputArea>
             <TotalInput
               placeholder="PW"
+              type="password"
               value={password}
               onChange={setPassword}
               required
@@ -64,7 +66,8 @@ const Login = () => {
               <TotalButton
                 onClick={(e) => {
                   sign(e);
-                }}>
+                }}
+              >
                 로그인
               </TotalButton>
             </LoginDiv>
@@ -72,7 +75,8 @@ const Login = () => {
               <TotalButton
                 onClick={() => {
                   navigate('/signup');
-                }}>
+                }}
+              >
                 회원가입
               </TotalButton>
             </SignUpDiv>
