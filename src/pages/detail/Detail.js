@@ -5,7 +5,12 @@ import addCommentThunk from '../../redux/modules/comment'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 //styled import
+
 import Comment from '../../component/comment/comment';
+import useInput from '../../hook/hook';
+import { addCommentThunk } from '../../redux/modules/comment';
+import { useParams } from 'react-router-dom';
+
 import {
   WholeDetail,
   ImageNinfo,
@@ -21,34 +26,35 @@ import {
   CommentNbutton,
   InputComment,
   SaveButton,
-  CommentList,
-  IndivComment,
-  CommentNickname,
-  CommentContent,
-  DeleteButton,
+  // CommentList,
+  // IndivComment,
+  // CommentNickname,
+  // CommentContent,
+  // DeleteButton,
 } from './DetailStyled';
 
 function Detail() {
   const dispatch = useDispatch();
-  const [comment, setComment] = useInput('');
+  const [comment] = useInput('');
   const param = useParams();
   const taken_comment = useSelector((state) => state.comment.comment);
+
   const comment_data = {
     comment: comment,
     movie_num: param,
     // nickname : 토큰속 닉네임
   };
-  console.log(taken_comment);
+  // console.log(taken_comment);
+
   const addComment = () => {
     dispatch(addCommentThunk(comment));
   };
 
-  //comment값에 글의 param값 나중에 추가하기
-  //comment값이 서버
+  // comment값에 글의 param값 나중에 추가하기
+  // comment값이 서버
 
   return (
     <WholeDetail>
-      <button onClick={addComment}>테스트</button>
       <ImageNinfo>
         <ImageBox>
           <MovieImage src="https://mblogthumb-phinf.pstatic.net/MjAxOTAxMTJfMzMg/MDAxNTQ3MjczNjczMjc1.8m8t9fNnOr87ggvT00zTmlbACX6EmnmU_kw_lr9pj5Yg.ZTqgm4WTeWyTNDKCECB7dW2zao5QjPX0GFpTcpmCYMEg.JPEG.mchumini/FMV-308.jpg?type=w800" />
@@ -66,8 +72,7 @@ function Detail() {
         <CommentNbutton>
           <InputComment
             type="text"
-            placeholder="댓글을 입력해 주세요."
-          ></InputComment>
+            placeholder="댓글을 입력해 주세요."></InputComment>
           <SaveButton>등록</SaveButton>
         </CommentNbutton>
         <hr></hr>

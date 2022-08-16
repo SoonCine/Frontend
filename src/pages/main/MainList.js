@@ -2,14 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import HeartLike from './HeartLike';
 
-const MainList = ({ movieOpenDate, movieTitle, img, key }) => {
-  const navigate = useNavigate();
+const MainList = ({ movieList }) => {
+  // const navigate = useNavigate();
   return (
     <ListWrap>
       <ListMovieImageBox>
         <ListMovieImage src={movieList.img} alt="profile" />
       </ListMovieImageBox>
       <ListContents>
+        <ListDate>{movieList.movieOpenDate}</ListDate>
+
         <ListContentsHead>
           <h3>{movieList.movieTitle}</h3>
           <ListContentLike>
@@ -19,8 +21,6 @@ const MainList = ({ movieOpenDate, movieTitle, img, key }) => {
             <p> {movieList.like}</p>
           </ListContentLike>
         </ListContentsHead>
-
-        <ListDate>{movieList.movieOpenDate}</ListDate>
       </ListContents>
     </ListWrap>
   );
@@ -33,18 +33,18 @@ const ListWrap = styled.div`
   border-radius: 25px;
   box-shadow: 5px 5px 0px #000;
   background-color: #fff;
-  border: 2px solid yellow;
+  max-height: 500px;
+  min-width: 250px;
 `;
 const ListMovieImageBox = styled.div`
-  width: 160px;
-  height: 210px;
-  border: 1px solid black;
-  margin: 20px;
+  width: 30vh;
+  height: 40vh;
+  margin: 2vh;
 `;
 
 const ListMovieImage = styled.img`
-  width: 160px;
-  height: 210px;
+  width: 100%;
+  height: 100%;
   background-size: contain;
   background-position: center;
   box-sizing: border-box;
@@ -58,30 +58,35 @@ const ListContents = styled.div`
   padding: 10px;
 `;
 
+const ListDate = styled.div`
+  align-items: center;
+  justify-content: center;
+`;
+
 const ListContentsHead = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 200px;
+  overflow: hidden;
 
   h3 {
-    margin: 0px;
+    max-width: 150px;
+    align-items: center;
     font-weight: 500;
     font-size: 22px;
     letter-spacing: 2px;
   }
   p {
-    margin-top: 2px;
+    align-items: center;
     font-size: 16px;
   }
 `;
 
 const ListContentLike = styled.div`
+  align-items: center;
   display: flex;
 `;
 
-const ListDate = styled.div`
-  align-items: center;
-  justify-content: center;
-`;
 /* h3 {
     margin: 0px;
     font-weight: 500;
