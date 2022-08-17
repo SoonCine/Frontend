@@ -13,7 +13,7 @@ import {
   MovieImage,
   MovieInfo,
   MovieTitle,
-  MovieEngtitle,
+  // MovieEngtitle,
   MovieGenre,
   MovieReleaseDate,
   Likes,
@@ -36,7 +36,7 @@ function Detail() {
 
   useEffect(() => {
     dispatch(commentList(id));
-  }, [comments]);
+  });
 
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
