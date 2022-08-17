@@ -1,7 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import useInput from '../../hook/hook';
-import { addCommentThunk } from '../../redux/modules/comment';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { commentList } from '../../redux/modules/comment';
@@ -25,10 +23,10 @@ import {
 } from './DetailStyled';
 
 import Comment from '../../component/comment/Comment';
+import CommentForm from '../../component/comment/CommnetForm';
 
 function Detail() {
   const dispatch = useDispatch();
-  const [setInputComment] = useInput('');
 
   useEffect(() => {
     dispatch(asyncGetMovieListDetail(id));
@@ -41,7 +39,7 @@ function Detail() {
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
   const comments = useSelector((state) => state.comment.commentList);
-
+  console.log('3333333', id);
   return (
     <WholeDetail>
       <ImageNinfo>
@@ -56,18 +54,14 @@ function Detail() {
           <Likes> {movie.Likes}</Likes>
         </MovieInfo>
       </ImageNinfo>
+
       <CommentBox>
-        <CommentNbutton>
-          <InputComment
-            type="text"
-            placeholder="댓글을 입력해 주세요."
-            onChange={setInputComment}></InputComment>
-          <SaveButton>등록</SaveButton>
-        </CommentNbutton>
+        <CommentForm id={id} />
+
         <hr></hr>
         <ScrollDiv>
-          {comments.map((item, i) => (
-            <Comment comment={item} key={i} />
+          {comments.map((item) => (
+            <Comment comment={item} key={item.id} />
           ))}
         </ScrollDiv>
       </CommentBox>
