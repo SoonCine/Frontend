@@ -9,7 +9,6 @@ export const movieThunk = createAsyncThunk(
     const List = await axios
       .get('http://54.180.89.34:8080/api/movie/upcomming')
       .then((res) => res.data.data);
-    console.log(List);
 
     return thunkAPI.fulfillWithValue();
   }

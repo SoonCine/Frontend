@@ -1,10 +1,10 @@
-import { React } from "react";
-import { useDispatch, useEffect } from "react-redux/es/exports";
-import { checkEmailThunk } from "../../redux/modules/user";
-import { useNavigate } from "react-router-dom";
-import useInput from "../../hook/hook";
-import axios from "axios";
-import setAuthorizationToken from "../../token/setAuthorizationToken/setAuthorizationToken";
+import { React } from 'react';
+import { useDispatch, useEffect } from 'react-redux/es/exports';
+import { checkEmailThunk } from '../../redux/modules/user';
+import { useNavigate } from 'react-router-dom';
+import useInput from '../../hook/hook';
+import axios from 'axios';
+
 //styled import
 import {
   WholeSignIn,
@@ -35,22 +35,22 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const signCheck = (token) => {
-    navigate("/main");
-    setAuthorizationToken(token);
+  const signCheck = (res) => {
+    const token = res.headers.authorization;
+    localStorage.setItem('Authorization', token);
+    localStorage.setItem('Nickname', res.data.data);
+    window.location.reload()
   };
-
+console.log(process.env.REACT_APP_URL)
   const sign = (event) => {
     event.preventDefault();
     axios
       .post("http://54.180.89.34:8080/api/member/login", userInfomation)
       .then((res) => {
-        const token = res.headers.authorization;
-        localStorage.setItem("JwtToken", token);
-        localStorage.setItem("Nickname", res.data.data);
-        res.data.success
-          ? signCheck(token)
-          : alert("이메일 비밀번호를 다시 확인해주세요.");
+        console.log(res)
+        res.data.data
+          ? signCheck(res)
+          : alert('이메일 비밀번호를 다시 확인해주세요.');
       });
   };
 

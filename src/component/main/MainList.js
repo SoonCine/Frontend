@@ -7,7 +7,6 @@ const MainList = ({ movieList }) => {
   const navigate = useNavigate();
 
   const title = movieList.movieTitle;
-  console.log(movieList);
   const lengthOverCut = (str, maxLength) => {
     return str.length > maxLength ? str.slice(0, maxLength - 1) + "..." : str;
   };
@@ -83,7 +82,7 @@ const ListContents = styled.div`
   padding: 2px;
   width: 220px;
   /* padding: 4px; */
-  /* background-color: orange; */
+  background-color: orange;
 `;
 
 const ListDate = styled.div`
@@ -94,6 +93,7 @@ const ListDate = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   border: 2px solid lightsalmon;
+
   padding: 2px 0px 2px 8px;
   margin: 3px 0px 0px 1px;
   /* background-color: skyblue; */
@@ -105,7 +105,7 @@ const ListContentsHead = styled.div`
   max-height: 50px;
   width: 215px;
   overflow: hidden;
-  /* background-color: green; */
+  background-color: green;
 
   h3 {
     width: 160px;
@@ -117,12 +117,12 @@ const ListContentsHead = styled.div`
     letter-spacing: 0.5px;
     margin: 13px 2px 1px 3px;
     /* text-overflow: ellipsis; */
-    /* background-color: white; */
+    background-color: white;
   }
   p {
     align-items: center;
     font-size: 18px;
-    /* background-color: gray; */
+    background-color: gray;
   }
 `;
 
@@ -131,6 +131,7 @@ const ListContentLike = styled.div`
   display: flex;
   min-height: 50px;
   min-width: 50px;
+
   padding: 2px 0px 0px 0px;
   /* background-color: pink; */
 `;
