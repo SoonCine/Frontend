@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import '../../static//fonts/fonts.css';
+import styled from "styled-components";
+import "../../static//fonts/fonts.css";
 
 export const WholeDetail = styled.div`
   /* width: 700px;
