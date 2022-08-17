@@ -26,6 +26,8 @@ export const addCommentThunk = createAsyncThunk(
   'addCommentThunk',
   async (payload,thunkAPI) => {
     const data = await axios.post(url_post,payload).then((res)=>console.log(res))
+
+    return payload
   }
 )
 

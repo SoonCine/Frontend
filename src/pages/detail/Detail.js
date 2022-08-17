@@ -36,7 +36,7 @@ function Detail() {
 
   useEffect(() => {
     dispatch(commentList(id));
-  }, [comments]);
+  }, []);
 
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
