@@ -25,7 +25,7 @@ export const ProfileContainer = styled.div`
 `;
 
 export const ListWrap = styled.div`
-width: 60%;
+  width: 60%;
   flex-direction: column;
   margin: 15px;
   box-sizing: border-box;
@@ -41,7 +41,7 @@ width: 60%;
   left: 350px;
 `;
 export const ListMovieImageBox = styled.div`
-width: 250px;
+  width: 250px;
 `;
 
 export const ListMovieImage = styled.img`
@@ -67,7 +67,7 @@ export const ListMovieImage = styled.img`
 `;
 
 export const ListContents = styled.div`
-width: 500px;
+  width: 500px;
   justify-content: center;
   align-items: center;
   margin: 5px 5px 5px 14px;
@@ -88,13 +88,12 @@ export const ListDate = styled.div`
   padding: 2px 0px 2px 6px;
   text-align: center;
 
-
   /* background-color: skyblue; */
 `;
 
 export const ListContentsHead = styled.div`
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   height: 150px;
   width: 450px;
   overflow: hidden;
@@ -128,24 +127,21 @@ export const ListContentLike = styled.div`
   /* background-color: pink; */
 `;
 
-export const DateArea = styled.div`
-
-`
+export const DateArea = styled.div``;
 export const EmailArea = styled.div`
-margin-top: 10px;
-`
+  margin-top: 10px;
+`;
 
 export const ButtonArea = styled.div`
-margin-left: 10px;
-`
+  margin-left: 10px;
+`;
 
 export const InputArea = styled.div`
-margin-left: 10px;
-`
+  margin-left: 10px;
+`;
 export const AddImgArea = styled.div`
-display: flex;
-
-`
+  display: flex;
+`;
 export const AllBox = styled.div`
-display: ${(props)=>props.display ? props.display : 'none'};
-`
+  display: ${(props) => (props.display ? props.display : "none")};
+`;

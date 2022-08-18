@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import {
   CommentNbutton,
   InputComment,
   SaveButton,
-} from '../../pages/detail/DetailStyled';
-import { addCommentList } from '../../redux/modules/comment';
+} from "../../pages/detail/DetailStyled";
+import { addCommentList } from "../../redux/modules/comment";
 
 const CommentForm = ({ id, inputForm, setInputForm }) => {
   const dispatch = useDispatch();
@@ -22,9 +22,9 @@ const CommentForm = ({ id, inputForm, setInputForm }) => {
     if (inputForm) {
       const newContents = { postId: { id }.id, content: inputForm };
       dispatch(addCommentList(newContents));
-      setInputForm('');
+      setInputForm("");
     } else {
-      alert('내용을 입력해주세요');
+      alert("내용을 입력해주세요");
     }
   };
 
@@ -38,10 +38,11 @@ const CommentForm = ({ id, inputForm, setInputForm }) => {
     <CommentNbutton>
       <InputComment
         type="text"
-        placeholder="15자 이내로 작성해주세요."
+        placeholder="  15자 이내로 작성해주세요."
         maxLength="15"
         value={inputForm}
-        onChange={(e) => setInputForm(e.target.value)}></InputComment>
+        onChange={(e) => setInputForm(e.target.value)}
+      ></InputComment>
 
       <SaveButton action="" type="submit" onClick={handleSubmit}>
         등록

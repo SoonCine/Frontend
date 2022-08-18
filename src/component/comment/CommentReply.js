@@ -1,17 +1,20 @@
-import React from 'react';
+import React from "react";
 import {
   CommentList,
   IndivComment,
+  CommentWrap,
   CommentNickname,
   CommentContent,
+  DRButtons,
   DeleteButton,
-} from '../../pages/detail/DetailStyled';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+  ReviseButton,
+} from "../../pages/detail/DetailStyled";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 import {
   editCommentList,
   _deleteCommentList,
-} from '../../redux/modules/comment';
+} from "../../redux/modules/comment";
 
 const Comment = ({ comment, id, inputForm, setInputForm }) => {
   const dispatch = useDispatch();
@@ -31,7 +34,7 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
     if (inputForm) {
       dispatch(editCommentList(pay));
     } else {
-      alert('다시 적으세요');
+      alert("다시 적으세요");
     }
   };
 
@@ -43,11 +46,15 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
   return (
     <CommentList>
       <IndivComment>
-        <CommentNickname> {comment.author} </CommentNickname>
-        <CommentContent> {comment.content} </CommentContent>
-        <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
-        {/* <button onClick={onEdit}>수정하기</button> */}
-        <button onClick={openModal}>수정</button>
+        <CommentWrap>
+          <CommentNickname> {comment.author} </CommentNickname>
+          <CommentContent> {comment.content} </CommentContent>
+        </CommentWrap>
+        <DRButtons>
+          <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
+          {/* <button onClick={onEdit}>수정하기</button> */}
+          <ReviseButton onClick={openModal}>수정</ReviseButton>
+        </DRButtons>
       </IndivComment>
     </CommentList>
   );
