@@ -20,7 +20,7 @@ const MainList = ({ movieList }) => {
         <ListDate>{movieList.movieOpenDate}</ListDate>
 
         <ListContentsHead>
-          <h3>{lengthOverCut(title, 9)}</h3>
+          <h3>{lengthOverCut(title, 8)}</h3>
           <ListContentLike>
             {/* 하트 카운트 */}
             <HeartLike count={movieList.likes_count} />
@@ -82,7 +82,7 @@ const ListContents = styled.div`
   padding: 2px;
   width: 220px;
   /* padding: 4px; */
-  background-color: orange;
+  /* background-color: orange; */
 `;
 
 const ListDate = styled.div`
@@ -105,7 +105,7 @@ const ListContentsHead = styled.div`
   max-height: 50px;
   width: 215px;
   overflow: hidden;
-  background-color: green;
+  /* background-color: green; */
 
   h3 {
     width: 160px;
@@ -117,12 +117,12 @@ const ListContentsHead = styled.div`
     letter-spacing: 0.5px;
     margin: 13px 2px 1px 3px;
     /* text-overflow: ellipsis; */
-    background-color: white;
+    /* background-color: white; */
   }
   p {
     align-items: center;
     font-size: 18px;
-    background-color: gray;
+    /* background-color: gray; */
   }
 `;
 
