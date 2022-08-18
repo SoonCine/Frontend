@@ -45,6 +45,7 @@ const Profile = () => {
     } else {
       const formdata = new FormData();
       formdata.append('images', img);
+      // 접근은 img.file[0]
       instance.post(
         '/api/auth/member/profileupdateimges',
         json
