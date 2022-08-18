@@ -23,7 +23,7 @@ import {
 } from './DetailStyled';
 
 import Comment from '../../component/comment/Comment';
-import CommentForm from '../../component/comment/CommnetForm';
+import CommentForm from '../../component/comment/CommentForm';
 import HeartLike from '../../component/main/HeartLike';
 import MainNav from '../../component/main/MainNav';
 import MainHeader from '../../component/main/MainHeader';
