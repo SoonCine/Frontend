@@ -23,20 +23,6 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
     dispatch(_deleteCommentList(comment.id));
   };
 
-  // const onEdit = (e) => {
-  //   e.preventDefault();
-  //   const pay = {
-  //     comment_id: comment.id,
-  //     postId: { id }.id,
-  //     content: comment.content,
-  //   };
-  //   if (inputForm) {
-  //     dispatch(editCommentList(pay));
-  //   } else {
-  //     alert('다시 적으세요');
-  //   }
-  // };
-
   const openModal = () => {
     setEditDisabled(!editDisabled);
     if (!editDisabled) {
