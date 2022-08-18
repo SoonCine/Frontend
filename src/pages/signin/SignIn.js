@@ -24,13 +24,13 @@ import {
   Buttons,
   LogInButton,
   SignUpButton,
-} from "./SignInStyled";
-import { TotalButton } from "../../component/totalButton/TotalButtonStyled";
-import { TotalInput } from "../../component/totalInput/TotalInputStyled";
+} from './SignInStyled';
+import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
+import { TotalInput } from '../../component/totalInput/TotalInputStyled';
 
 const Login = () => {
-  const [email, setEmail] = useInput("");
-  const [password, setPassword] = useInput("");
+  const [email, setEmail] = useInput('');
+  const [password, setPassword] = useInput('');
   const userInfomation = { email: email, password: password };
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,15 +39,14 @@ const Login = () => {
     const token = res.headers.authorization;
     localStorage.setItem('Authorization', token);
     localStorage.setItem('Nickname', res.data.data);
-    window.location.reload()
+    window.location.reload();
   };
-console.log(process.env.REACT_APP_URL)
+  console.log(process.env.REACT_APP_URL);
   const sign = (event) => {
     event.preventDefault();
     axios
-      .post("http://54.180.89.34:8080/api/member/login", userInfomation)
+      .post('http://54.180.89.34:8080/api/member/login', userInfomation)
       .then((res) => {
-        console.log(res)
         res.data.data
           ? signCheck(res)
           : alert('이메일 비밀번호를 다시 확인해주세요.');
@@ -77,22 +76,19 @@ console.log(process.env.REACT_APP_URL)
                   type="password"
                   value={password}
                   onChange={setPassword}
-                  required
-                ></InputPw>
+                  required></InputPw>
               </Pws>
               <Buttons>
                 <LogInButton
                   onClick={(e) => {
                     sign(e);
-                  }}
-                >
+                  }}>
                   로그인
                 </LogInButton>
                 <SignUpButton
                   onClick={() => {
-                    navigate("/signup");
-                  }}
-                >
+                    navigate('/signup');
+                  }}>
                   회원가입
                 </SignUpButton>
               </Buttons>

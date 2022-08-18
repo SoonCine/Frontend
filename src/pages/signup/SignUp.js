@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import useInput from '../../hook/hook';
@@ -53,12 +54,14 @@ const SignUp = () => {
   // console.log(P_Check)
 
   const signUpCheck = (event) => {
+    console.log('가냐:::::');
     event.preventDefault();
     if (N_Check && E_Check) {
       if(P_Check){
       axios
         .post('http://54.180.89.34:8080/api/member/signup', signUpData)
         .then(() => navigate('/'));
+
     }}
     if (E_Check === false) {
       axios
@@ -103,6 +106,7 @@ const SignUp = () => {
                 value={email}
                 onChange={setEmail}
                 placeholder="  이메일"
+
                 required
               ></IdInput>
               <IdButton onClick={(event)=>signUpCheck(event)}>중복 확인</IdButton>
@@ -136,6 +140,7 @@ const SignUp = () => {
                 required
                 // required
               ></NickInput>
+
               <NickButton onClick={(event)=>signUpCheck(event)}>중복 확인</NickButton>
             </NicknameArea>
             <SaveButton onClick={(event)=>signUpCheck(event)}>등록!</SaveButton>

@@ -1,14 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import HeartLike from "./HeartLike";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import HeartLike from './HeartLike';
+import { useNavigate } from 'react-router-dom';
 
 const MainList = ({ movieList }) => {
   const navigate = useNavigate();
-
   const title = movieList.movieTitle;
   const lengthOverCut = (str, maxLength) => {
-    return str.length > maxLength ? str.slice(0, maxLength - 1) + "..." : str;
+    return str.length > maxLength ? str.slice(0, maxLength - 1) + '...' : str;
   };
 
   return (
