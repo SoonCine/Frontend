@@ -16,9 +16,6 @@ import {
   MovieAge,
   Likes,
   CommentBox,
-  CommentNbutton,
-  InputComment,
-  SaveButton,
   ScrollDiv,
 } from './DetailStyled';
 
@@ -27,6 +24,7 @@ import CommentForm from '../../component/comment/CommentForm';
 import HeartLike from '../../component/main/HeartLike';
 import MainNav from '../../component/main/MainNav';
 import MainHeader from '../../component/main/MainHeader';
+
 
 function Detail() {
   const dispatch = useDispatch();

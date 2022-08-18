@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import useInput from '../../hook/hook';
 import axios from 'axios';
-import checkEmailThunk from '../../redux/modules/user';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 //styled import
 import {
@@ -44,6 +45,10 @@ const SignUp = () => {
     password: password,
     passwordConfirm: password,
   };
+  useEffect(() => {
+    password === checkPw ? setP_check(true) : setP_check(false);
+  }, [checkPw]);
+  console.log(E_Check, N_Check, P_Check);
 
   // password === checkPw ? setP_check(true) : setP_check(false)
   // console.log(P_Check)
@@ -52,10 +57,12 @@ const SignUp = () => {
     console.log('가냐:::::');
     event.preventDefault();
     if (N_Check && E_Check) {
+      if(P_Check){
       axios
         .post('http://54.180.89.34:8080/api/member/signup', signUpData)
         .then(() => navigate('/'));
-    }
+
+    }}
     if (E_Check === false) {
       axios
         .post('http://54.180.89.34:8080/api/members/emailcheck', checkEmail)
@@ -83,6 +90,8 @@ const SignUp = () => {
             setE_check(res.data.data);
           }
         });
+    } else if (P_Check === false) {
+      alert('비밀번호를 다시 확인해주세요.');
     }
   };
 
@@ -97,16 +106,18 @@ const SignUp = () => {
                 value={email}
                 onChange={setEmail}
                 placeholder="  이메일"
-                required></IdInput>
-              <IdButton onClick={(event) => signUpCheck(event)}>
-                중복 확인
-              </IdButton>
+
+                required
+              ></IdInput>
+              <IdButton onClick={(event)=>signUpCheck(event)}>중복 확인</IdButton>
             </IdArea>
             {/* <PwArea> */}
             <PwInput1
               placeholder="  비밀번호"
               value={password}
               onChange={setPassword}
+              minLength={6}
+              required
               type="password"
               // required
             ></PwInput1>
@@ -114,7 +125,9 @@ const SignUp = () => {
               placeholder="  비밀번호 확인"
               value={checkPw}
               onChange={setCheckPw}
+              minLength={6}
               type="password"
+              required
               // required
             ></PwInput2>
             {/* </PwArea> */}
@@ -124,15 +137,13 @@ const SignUp = () => {
                 value={nickName}
                 onChange={setNickName}
                 maxLength={8}
+                required
                 // required
               ></NickInput>
-              <NickButton onClick={(event) => signUpCheck(event)}>
-                중복 확인
-              </NickButton>
+
+              <NickButton onClick={(event)=>signUpCheck(event)}>중복 확인</NickButton>
             </NicknameArea>
-            <SaveButton onClick={(event) => signUpCheck(event)}>
-              등록!
-            </SaveButton>
+            <SaveButton onClick={(event)=>signUpCheck(event)}>등록!</SaveButton>
           </WrapIdPwNickBtn>
         </MainForm>
       </MainBody>
