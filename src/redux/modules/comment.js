@@ -16,8 +16,6 @@ export const commentList = createAsyncThunk(
     try {
       const response = await instance.get(url_post + `${payload}`);
 
-      // console.log('111111', response.data.data.commentResponseDtoList);
-
       return thunkAPI.fulfillWithValue(
         response.data.data.commentResponseDtoList
       );
@@ -99,7 +97,6 @@ const commentSlice = createSlice({
       console.log(action);
     },
     [editCommentList.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.commentList = state.commentList.map((item, index) => {
         if (item.id === action.payload.comment_id) {
           return {

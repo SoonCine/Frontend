@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const MainNav = () => {
   const navigate = useNavigate();
   const nickName = localStorage.getItem('Nickname');
-  // console.log(object);
 
   const logOut = () => {
     localStorage.clear();

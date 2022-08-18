@@ -39,8 +39,9 @@ function Detail() {
 
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
-  const comments = useSelector((state) => state.comment.commentList);
 
+  const comments = useSelector((state) => state.comment.commentList);
+  console.log('12312312321321312', movie);
   return (
     <WholeDetail>
       <MainHeader />
@@ -54,10 +55,12 @@ function Detail() {
           <hr></hr>
           <MovieAge>{movie.movieAge}</MovieAge>
           <MovieReleaseDate>{movie.movieOpenDate}</MovieReleaseDate>
-          <Likes>
-            <HeartLike />
-          </Likes>
-          <div>{movie.likes}</div>
+          <div style={{ display: 'flex', margin: '10px 10px 10px 5px' }}>
+            <div>
+              <HeartLike />
+            </div>
+            <div>{movie.movieRate}</div>
+          </div>
         </MovieInfo>
       </ImageNinfo>
 

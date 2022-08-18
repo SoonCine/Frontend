@@ -13,13 +13,10 @@ const CommentForm = ({ id, inputForm, setInputForm }) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comment.commentList);
 
-  console.log('21321312321', comments);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputForm) {
       const newContents = { postId: { id }.id, content: inputForm };
-      // console.log('21321312321', newContents);
       dispatch(addCommentList(newContents));
       setInputForm('');
     } else {
