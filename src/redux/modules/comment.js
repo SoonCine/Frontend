@@ -16,15 +16,12 @@ export const commentList = createAsyncThunk(
     try {
       const response = await instance.get(url_post + `${payload}`);
 
-      // console.log('111111', response.data.data.commentResponseDtoList);
-
       return thunkAPI.fulfillWithValue(
         response.data.data.commentResponseDtoList
       );
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }
-    // console.log(thunkAPI.fulfillWithValue);
   }
 );
 
@@ -47,7 +44,6 @@ export const _deleteCommentList = createAsyncThunk(
   '_deleteCommentList',
   async (payload, thunkAPI) => {
     try {
-      // console.log('axios', payload);
       const response = await instance.delete(
         `${url_post_post}comment/${payload}`
       );
@@ -63,9 +59,8 @@ export const editCommentList = createAsyncThunk(
   'editCommentList',
   async (payload, thunkAPI) => {
     try {
-      // console.log('axios', payload);
       const response = await instance.put(
-        `${url_post_post}comment/${payload.postId}`,
+        `${url_post_post}comment/${payload.comment_id}`,
         { postId: payload.postId, content: payload.content }
       );
       return thunkAPI.fulfillWithValue(payload);
@@ -81,7 +76,6 @@ const commentSlice = createSlice({
   reducers: {},
   extraReducers: {
     [commentList.fulfilled]: (state, action) => {
-      // console.log(action.payload);
       state.commentList = action.payload;
     },
     [commentList.rejected]: (state, action) => {
@@ -103,9 +97,16 @@ const commentSlice = createSlice({
       console.log(action);
     },
     [editCommentList.fulfilled]: (state, action) => {
-      state.commentList = state.commentList.filter(
-        (comment) => comment.id !== action.payload
-      );
+      state.commentList = state.commentList.map((item, index) => {
+        if (item.id === action.payload.comment_id) {
+          return {
+            ...item,
+            content: action.payload.content,
+          };
+        } else {
+          return { ...item };
+        }
+      });
     },
     [editCommentList.rejected]: (state, action) => {
       console.log(action);

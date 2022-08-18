@@ -50,13 +50,13 @@ const SignUp = () => {
   }, [checkPw]);
 const URL = process.env.REACT_APP_URL
 
+
   // password === checkPw ? setP_check(true) : setP_check(false)
-  // console.log(P_Check)
 
   const signUpCheck = (event) => {
-    console.log('가냐:::::');
     event.preventDefault();
     if (N_Check && E_Check) {
+
       if(P_Check){
       axios
         .post(`${URL}/api/member/signup`, signUpData)
@@ -106,10 +106,10 @@ const URL = process.env.REACT_APP_URL
                 value={email}
                 onChange={setEmail}
                 placeholder="  이메일"
-
-                required
-              ></IdInput>
-              <IdButton onClick={(event)=>signUpCheck(event)}>중복 확인</IdButton>
+                required></IdInput>
+              <IdButton onClick={(event) => signUpCheck(event)}>
+                중복 확인
+              </IdButton>
             </IdArea>
             {/* <PwArea> */}
             <PwInput1
@@ -141,9 +141,13 @@ const URL = process.env.REACT_APP_URL
                 // required
               ></NickInput>
 
-              <NickButton onClick={(event)=>signUpCheck(event)}>중복 확인</NickButton>
+              <NickButton onClick={(event) => signUpCheck(event)}>
+                중복 확인
+              </NickButton>
             </NicknameArea>
-            <SaveButton onClick={(event)=>signUpCheck(event)}>등록!</SaveButton>
+            <SaveButton onClick={(event) => signUpCheck(event)}>
+              등록!
+            </SaveButton>
           </WrapIdPwNickBtn>
         </MainForm>
       </MainBody>
