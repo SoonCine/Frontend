@@ -9,12 +9,11 @@ import {
 } from '../../pages/detail/DetailStyled';
 import { addCommentList } from '../../redux/modules/comment';
 
-const CommentForm = ({ id }) => {
+const CommentForm = ({ id, inputForm, setInputForm }) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comment.commentList);
-  console.log('---------', comments);
 
-  const [inputForm, setInputForm] = useState('');
+  // const [inputForm, setInputForm] = useState('');
 
   // console.log(inputForm);
 
@@ -22,7 +21,6 @@ const CommentForm = ({ id }) => {
     e.preventDefault();
     if (inputForm) {
       const newContents = { postId: { id }.id, content: inputForm };
-      console.log('22222222222', newContents);
       dispatch(addCommentList(newContents));
       setInputForm('');
     } else {
@@ -30,11 +28,18 @@ const CommentForm = ({ id }) => {
     }
   };
 
+  // const handleLimit = (num, maxlength) => {
+  //   if (num.value.length > maxlength) {
+  //     num.value = num.value.substr(o, maxlength);
+  //   }
+  // };
+
   return (
     <CommentNbutton>
       <InputComment
         type="text"
-        placeholder="댓글을 입력해 주세요."
+        placeholder="15자 이내로 작성해주세요."
+        maxLength="15"
         value={inputForm}
         onChange={(e) => setInputForm(e.target.value)}></InputComment>
 

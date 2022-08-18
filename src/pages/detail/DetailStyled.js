@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import "../../static//fonts/fonts.css";
+import styled from 'styled-components';
+import '../../static//fonts/fonts.css';
 
 export const WholeDetail = styled.div`
   /* width: 700px;
@@ -54,7 +54,7 @@ export const MovieEngtitle = styled.p`
   margin: 0px 0px 0px 10px;
   font-size: 13px;
 `;
-export const MovieGenre = styled.p`
+export const MovieAge = styled.p`
   margin: 10px;
   font-size: 20px;
 `;

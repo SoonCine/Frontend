@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { deleteCommentList } from './comment';
+import instance from '../../token/instance/instance';
 
-const url_post = process.env.REACT_APP_URL + `/api/post/movieupcomming/`;
-const url_post_post = process.env.REACT_APP_URL + `/api/auth/movieupcomming/`;
+const url_post = `/api/post/movieupcomming/`;
+const url_post_post = `/api/auth/movieupcomming/`;
 const initialState = {
   commentList: [],
 };
@@ -13,8 +14,10 @@ export const commentList = createAsyncThunk(
   async (payload, thunkAPI) => {
     // payload = id
     try {
-      const response = await axios.get(url_post + `${payload}`);
-      // console.log('111111', data.data.data.commentResponseDtoList);
+      const response = await instance.get(url_post + `${payload}`);
+
+      // console.log('111111', response.data.data.commentResponseDtoList);
+
       return thunkAPI.fulfillWithValue(
         response.data.data.commentResponseDtoList
       );
@@ -29,37 +32,43 @@ export const addCommentList = createAsyncThunk(
   'addCommentList',
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.post(`${url_post_post}comment`, payload);
-
-      return console.log('-----ㅗㅗㅗㅗ----', response);
-      // return thunkAPI.fulfillWithValue(response.data.data);
+      const response = await instance.post(`${url_post_post}comment`, payload);
+      // return console.log(response.data.data);
+      return thunkAPI.fulfillWithValue(response.data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
   }
 );
 
+// /api/auth/movieupcomming/comment/{id}
+
 export const _deleteCommentList = createAsyncThunk(
-  'deleteCommentList',
+  '_deleteCommentList',
   async (payload, thunkAPI) => {
     try {
       // console.log('axios', payload);
-      const data = await axios.delete(url_post, payload);
-      // return thunkAPI.fulfillWithValue();
-      return console.log('11111111111', data.data.data);
+      const response = await instance.delete(
+        `${url_post_post}comment/${payload}`
+      );
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
   }
 );
 
+// /api/auth/movieupcomming/comment/{comment_id}
 export const editCommentList = createAsyncThunk(
   'editCommentList',
   async (payload, thunkAPI) => {
     try {
       // console.log('axios', payload);
-      const data = await axios.post(url_post, payload);
-      return thunkAPI.fulfillWithValue();
+      const response = await instance.put(
+        `${url_post_post}comment/${payload.postId}`,
+        { postId: payload.postId, content: payload.content }
+      );
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -76,14 +85,30 @@ const commentSlice = createSlice({
       state.commentList = action.payload;
     },
     [commentList.rejected]: (state, action) => {
-      // console.log(action);
+      console.log(action);
     },
 
     [addCommentList.fulfilled]: (state, action) => {
-      // state.addCommentList =
+      state.commentList = [...state.commentList, action.payload];
     },
     [addCommentList.rejected]: (state, action) => {
-      // state.addCommentList =
+      console.log(action);
+    },
+    [_deleteCommentList.fulfilled]: (state, action) => {
+      state.commentList = state.commentList.filter(
+        (comment) => comment.id !== action.payload
+      );
+    },
+    [_deleteCommentList.rejected]: (state, action) => {
+      console.log(action);
+    },
+    [editCommentList.fulfilled]: (state, action) => {
+      state.commentList = state.commentList.filter(
+        (comment) => comment.id !== action.payload
+      );
+    },
+    [editCommentList.rejected]: (state, action) => {
+      console.log(action);
     },
   },
 });

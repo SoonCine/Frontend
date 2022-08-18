@@ -9,7 +9,6 @@ import { asyncGetMovieList } from '../../redux/modules/movieList';
 import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const _movieList = useSelector((state) => state.movieList.movieList);
 

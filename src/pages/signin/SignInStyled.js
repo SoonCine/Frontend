@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 // import "../../static//fonts/fonts.css";
 
 export const WholeSignIn = styled.div`
-  height: 730px;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: url("https://i.pinimg.com/564x/a1/2a/bc/a12abcad54f56dfd0804f7a48d025fb4.jpg");
+  background-image: url('https://i.pinimg.com/564x/a1/2a/bc/a12abcad54f56dfd0804f7a48d025fb4.jpg');
   /* background-color: lightgray; */
 `;
 
@@ -21,7 +21,7 @@ export const IntroArea = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://i.pinimg.com/564x/04/01/00/0401002fdfd15e9c072a00623ec9336b.jpg");
+  background-image: url('https://i.pinimg.com/564x/04/01/00/0401002fdfd15e9c072a00623ec9336b.jpg');
   background-position: 0%;
   // https://i.pinimg.com/564x/8e/8f/20/8e8f20c1bc5a1953c2d0d8abb8f1bbfb.jpg
   /* background-color: whitesmoke; */
@@ -76,7 +76,7 @@ export const MainForm = styled.div`
   border: 2px solid lightcoral;
   border-radius: 20px;
   margin: 0px 0px 60px 0px;
-  background-image: url("https://i.pinimg.com/564x/b1/14/34/b1143434a07bf15fdf82f55d5ac87764.jpg");
+  background-image: url('https://i.pinimg.com/564x/b1/14/34/b1143434a07bf15fdf82f55d5ac87764.jpg');
   background-position: 50%;
   /* background-color: lightblue; */
 `;
