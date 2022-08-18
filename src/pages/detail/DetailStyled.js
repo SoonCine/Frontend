@@ -183,33 +183,7 @@ export const ContentArea = styled.div`
   margin-left: 20px;
 `;
 
-export const CommentDeleteButton = styled.button`
-  border-radius: 15%;
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  width: 32px;
-  height: 22px;
-  margin-top: 5px;
-`;
-
 export const ScrollDiv = styled.div`
   height: 300px;
   overflow: scroll;
 `;
-
-{
-  /* <CommentDiv>
-<CommentArea>
-<NicknameArea>
-  덕구아빠
-</NicknameArea>
-
-<ContentArea>
-  내용입니다
-</ContentArea>
-
-<CommentDeleteButton>🗑️</CommentDeleteButton>
-</CommentArea>
-</CommentDiv> */
-}
