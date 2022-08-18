@@ -34,18 +34,17 @@ const Login = () => {
   const userInfomation = { email: email, password: password };
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const URL = process.env.REACT_APP_URL
   const signCheck = (res) => {
     const token = res.headers.authorization;
     localStorage.setItem('Authorization', token);
     localStorage.setItem('Nickname', res.data.data);
     window.location.reload();
   };
-  // console.log(process.env.REACT_APP_URL);
   const sign = (event) => {
     event.preventDefault();
     axios
-      .post('http://54.180.89.34:8080/api/member/login', userInfomation)
+      .post(`${URL}/api/member/login`, userInfomation)
       .then((res) => {
         res.data.data
           ? signCheck(res)

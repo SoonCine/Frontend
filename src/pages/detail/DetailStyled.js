@@ -19,8 +19,14 @@ export const WholeDetail = styled.div`
   height: 100vh;
 `;
 
+export const TwoBox = styled.div`
+  min-width: 850px;
+  /* padding: 20px 15px; */
+  /* background-color: yellow; */
+`;
+
 export const ImageNinfo = styled.div`
-  width: 550px;
+  width: 100%;
   border: 1px solid black;
   border-radius: 10px;
   display: flex;
@@ -50,7 +56,7 @@ export const MovieImage = styled.img`
 `;
 
 export const MovieInfo = styled.div`
-  width: 330px;
+  width: 500px;
   height: 220px;
   border: 1px solid black;
   border-radius: 10px;
@@ -59,32 +65,39 @@ export const MovieInfo = styled.div`
 `;
 
 export const MovieTitle = styled.p`
-  margin: 10px 10px 0px 10px;
-  font-size: 30px;
+  margin: 10px 10px 0px 20px;
+  font-size: 24px;
 `;
 
 export const MovieAge = styled.p`
-  margin: 10px;
+  margin: 10px 10px 10px 20px;
   font-size: 14px;
 `;
 
 export const MovieReleaseDate = styled.p`
-  margin: 10px;
-  font-size: 20px;
+  margin: 10px 10px 10px 20px;
+  font-size: 18px;
 `;
 
-export const Likes = styled.button`
-  cursor: pointer;
-  margin: 0px 0px 0px 10px;
-  color: crimson;
+// export const Likes = styled.button`
+//   cursor: pointer;
+//   margin: 0px 0px 0px 10px;
+//   height: 50px;
+//   width: 70px;
+//   /* color: crimson; */
+// `;
+
+export const HeartLike = styled.div`
+  /* margin: 10px 10px 10px 20px; */
+  background-color: black;
 `;
 
 export const CommentBox = styled.div`
-  width: 550px;
+  width: 100%;
   height: 400px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px;
+  margin: 15px 0px 0px 0px;
   justify-content: center;
   align-items: center;
   /* background-color: rgb(252, 249, 242); */
@@ -100,15 +113,15 @@ export const CommentNbutton = styled.div`
 `;
 
 export const InputComment = styled.input`
-  width: 445px;
+  width: 730px;
   height: 35px;
   border: 1px solid black;
   border-radius: 10px;
 `;
 
 export const SaveButton = styled.button`
-  height: 40px;
-  width: 48px;
+  height: 39px;
+  width: 52px;
   border: 1px solid black;
   border-radius: 10px;
   margin: 0 0 0 20px;
@@ -118,30 +131,57 @@ export const SaveButton = styled.button`
 export const CommentList = styled.div``;
 
 export const IndivComment = styled.div`
+  width: 100%;
+  height: 56px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 14px 20px 20px 20px;
+  margin: 15px 0;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-color: rgb(252, 249, 242);
+  /* background-color: gray; */
 `;
 
-export const CommentNickname = styled.p`
-  text-align: center;
+export const NicknameArea = styled.div`
+  /* width: 120px;
+  margin-top: 4.5px;
+  background-color: red; */
+  /* text-align: left;
   width: 120px;
   height: 35px;
   border: 1px solid black;
   border-radius: 10px;
   margin: 15px;
+  background-color: yellow; */
 `;
 
-export const CommentContent = styled.p`
+export const CommentArea = styled.div`
+  /* width: 520px;
+  height: 30px;
+  border: 1px solid black;
+  margin-left: 20px;
+  display: flex;
   padding-left: 12px;
   width: 300px;
   height: 35px;
   border: 1px solid black;
   border-radius: 10px;
   margin: 15px 0px 15px 0px;
+  background-color: lightblue; */
+`;
+
+export const CommentWrap = styled.div`
+  //닉네임이랑 댓글같이감싼것
+  display: flex;
+  align-items: center;
+  width: 85%;
+  padding: 10px;
+`;
+
+export const CommentNickname = styled.div`
+  width: 120px;
+  height: 35px;
 `;
 
 export const CommentEditInput = styled.input`
@@ -153,29 +193,49 @@ export const CommentEditInput = styled.input`
   margin: 15px 0px 15px 0px;
 `;
 
-export const DeleteButton = styled.button`
+export const CommentContent = styled.div`
+  /* padding-left: 12px;
+  width: 300px;
+  height: 35px;
   border: 1px solid black;
-  border-radius: 15%;
-  margin: 20px;
-  background-color: transparent;
-  cursor: pointer;
-  width: 32px;
-  height: 22px;
-`;
-
-export const CommentDiv = styled.div``;
-export const CommentArea = styled.div`
-  width: 520px;
-  height: 30px;
+  border-radius: 10px;
+  margin: 15px 0px 15px 0px;
+  background-color: lightblue; */
+  width: 80%;
+  height: 35px;
+  font-size: 16px;
   border: 1px solid black;
-  margin-left: 20px;
+  border-radius: 10px;
+  line-height: 35px;
+  padding-left: 10px;
   display: flex;
 `;
 
-export const NicknameArea = styled.div`
-  width: 120px;
-  margin-top: 4.5px;
+export const DRButtons = styled.div`
+  width: 15%;
+  /* background-color: pink; */
 `;
+
+export const DeleteButton = styled.button`
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px 10px 10px 0px;
+  cursor: pointer;
+  background-color: rgb(252, 249, 242);
+  width: 50px;
+  height: 35px;
+`;
+
+export const ReviseButton = styled.button`
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(252, 249, 242);
+  cursor: pointer;
+  width: 50px;
+  height: 35px;
+`;
+
+export const CommentDiv = styled.div``;
 
 export const ContentArea = styled.div`
   width: 340px;
@@ -183,33 +243,8 @@ export const ContentArea = styled.div`
   margin-left: 20px;
 `;
 
-export const CommentDeleteButton = styled.button`
-  border-radius: 15%;
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  width: 32px;
-  height: 22px;
-  margin-top: 5px;
-`;
-
 export const ScrollDiv = styled.div`
   height: 300px;
+  padding: 0 20px;
   overflow: scroll;
 `;
-
-{
-  /* <CommentDiv>
-<CommentArea>
-<NicknameArea>
-  덕구아빠
-</NicknameArea>
-
-<ContentArea>
-  내용입니다
-</ContentArea>
-
-<CommentDeleteButton>🗑️</CommentDeleteButton>
-</CommentArea>
-</CommentDiv> */
-}

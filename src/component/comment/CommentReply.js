@@ -5,6 +5,8 @@ import {
   CommentNickname,
   DeleteButton,
   CommentEditInput,
+  DRButtons,
+  ReviseButton,
 } from '../../pages/detail/DetailStyled';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -47,11 +49,12 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
           value={editDisabled ? comment.content : editContent}
           disabled={editDisabled}
         />
-        <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
-        {/* <button onClick={onEdit}>수정하기</button> */}
-        <button onClick={openModal}>
-          {editDisabled ? '수정' : '수정완료'}
-        </button>
+        <DRButtons>
+          <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
+          <ReviseButton onClick={openModal}>
+            {editDisabled ? '수정' : '수정완료'}
+          </ReviseButton>
+        </DRButtons>
       </IndivComment>
     </CommentList>
   );
