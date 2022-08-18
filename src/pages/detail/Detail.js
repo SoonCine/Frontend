@@ -15,14 +15,11 @@ import {
   MovieReleaseDate,
   Likes,
   CommentBox,
-  CommentNbutton,
-  InputComment,
-  SaveButton,
   ScrollDiv,
 } from "./DetailStyled";
 
-import Comment from "../../component/comment/Comment";
-import CommentForm from "../../component/comment/CommnetForm";
+import Comment from '../../component/comment/Comment';
+import CommentForm from '../../component/comment/CommnetForm';
 
 function Detail() {
   const dispatch = useDispatch();

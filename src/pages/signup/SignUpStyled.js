@@ -36,7 +36,7 @@ export const SignUpTxt = styled.p`
   font-weight: bold;
   text-decoration:underline;
   /* text-underline-position: under; */
-  font-size 30px;
+  font-size: 30px;
   /* background-color: red; */
 `;
 export const WrapIdPwNickBtn = styled.div`
