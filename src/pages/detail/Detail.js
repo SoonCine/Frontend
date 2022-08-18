@@ -16,13 +16,10 @@ import {
   MovieReleaseDate,
   Likes,
   CommentBox,
-  CommentNbutton,
-  InputComment,
-  SaveButton,
   ScrollDiv,
 } from './DetailStyled';
 
-import Comment from '../../component/comment/Comment';
+import Comment from '../../component/comment/comment';
 import CommentForm from '../../component/comment/CommnetForm';
 
 function Detail() {
@@ -35,7 +32,6 @@ function Detail() {
   useEffect(() => {
     dispatch(commentList(id));
   });
-
 
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
