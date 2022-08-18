@@ -48,21 +48,24 @@ const SignUp = () => {
   useEffect(() => {
     password === checkPw ? setP_check(true) : setP_check(false);
   }, [checkPw]);
+const URL = process.env.REACT_APP_URL
+
 
   // password === checkPw ? setP_check(true) : setP_check(false)
 
   const signUpCheck = (event) => {
     event.preventDefault();
     if (N_Check && E_Check) {
-      if (P_Check) {
-        axios
-          .post('http://54.180.89.34:8080/api/member/signup', signUpData)
-          .then(() => navigate('/'));
-      }
-    }
+
+      if(P_Check){
+      axios
+        .post(`${URL}/api/member/signup`, signUpData)
+        .then(() => navigate('/'));
+
+    }}
     if (E_Check === false) {
       axios
-        .post('http://54.180.89.34:8080/api/members/emailcheck', checkEmail)
+        .post(`${URL}/api/members/emailcheck`, checkEmail)
         .then((res) => {
           if (res.data.data) {
             alert('사용 가능한 이메일 입니다.');
@@ -75,7 +78,7 @@ const SignUp = () => {
     } else if (N_Check === false) {
       axios
         .post(
-          'http://54.180.89.34:8080/api/members/nicknamecheck',
+          `${URL}/api/members/nicknamecheck`,
           checkNickname
         )
         .then((res) => {

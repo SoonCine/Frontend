@@ -42,11 +42,13 @@ const Profile = () => {
       setDisplay("block");
     } else {
       const formdata = new FormData();
-      formdata.append("images", img);
-      instance
-        .post("/api/auth/member/profileupdateimges", json)
-        .then((res) => setprofileimg(res.data.data.profileimg));
-      setDisplay("none");
+      formdata.append('images', img);
+      // 접근은 img.file[0]
+      instance.post(
+        '/api/auth/member/profileupdateimges',
+        json
+      ).then((res)=>setprofileimg(res.data.data.profileimg))
+    setDisplay('none')
     }
   };
   return (
