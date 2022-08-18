@@ -146,3 +146,6 @@ export const AddImgArea = styled.div`
 display: flex;
 
 `
+export const AllBox = styled.div`
+display: ${(props)=>props.display ? props.display : 'none'};
+`
