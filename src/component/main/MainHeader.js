@@ -1,22 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const MainHeader = () => {
   return (
     <HeaderWrap>
-      <h1>순씨네</h1>
+      <img src="../../SoonCineLogo.png"></img>
     </HeaderWrap>
   );
 };
 
 const HeaderWrap = styled.div`
   display: flex;
-  height: 6rem;
-  width: 100%;
+  width: 300px;
+  height: 30px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  border: 2px solid black;
+  background-color: lightblue;
 `;
 
 const HeaderMenu = styled.div``;

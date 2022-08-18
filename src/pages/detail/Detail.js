@@ -1,9 +1,10 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { commentList } from '../../redux/modules/comment';
+import { addCommentList, commentList } from '../../redux/modules/comment';
 import { asyncGetMovieListDetail } from '../../redux/modules/movieListDetail';
+
 import {
   WholeDetail,
   ImageNinfo,
@@ -11,34 +12,39 @@ import {
   MovieImage,
   MovieInfo,
   MovieTitle,
-  // MovieEngtitle,
-  MovieGenre,
+  MovieAge,
   MovieReleaseDate,
   Likes,
   CommentBox,
   ScrollDiv,
 } from './DetailStyled';
 
-import Comment from '../../component/comment/comment';
-import CommentForm from '../../component/comment/CommnetForm';
+import Comment from '../../component/comment/Comment';
+import CommentForm from '../../component/comment/CommentForm';
+import HeartLike from '../../component/main/HeartLike';
+import MainNav from '../../component/main/MainNav';
+import MainHeader from '../../component/main/MainHeader';
 
 function Detail() {
   const dispatch = useDispatch();
+  const [inputForm, setInputForm] = useState('');
+
+  useEffect(() => {
+    dispatch(commentList(id));
+  }, []);
 
   useEffect(() => {
     dispatch(asyncGetMovieListDetail(id));
   }, []);
 
-  useEffect(() => {
-    dispatch(commentList(id));
-  });
-
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
   const comments = useSelector((state) => state.comment.commentList);
-  console.log('3333333', id);
+
   return (
     <WholeDetail>
+      <MainHeader />
+      <MainNav />
       <ImageNinfo>
         <ImageBox>
           <MovieImage src={movie.img} />
@@ -46,19 +52,32 @@ function Detail() {
         <MovieInfo>
           <MovieTitle>{movie.movieTitle}</MovieTitle>
           <hr></hr>
-          <MovieGenre>{movie.movieAge}</MovieGenre>
+          <MovieAge>{movie.movieAge}</MovieAge>
           <MovieReleaseDate>{movie.movieOpenDate}</MovieReleaseDate>
-          <Likes> {movie.Likes}</Likes>
+          <Likes>
+            <HeartLike />
+          </Likes>
+          <div>{movie.likes}</div>
         </MovieInfo>
       </ImageNinfo>
 
       <CommentBox>
-        <CommentForm id={id} />
+        <CommentForm
+          id={id}
+          inputForm={inputForm}
+          setInputForm={setInputForm}
+        />
 
         <hr></hr>
         <ScrollDiv>
           {comments.map((item) => (
-            <Comment comment={item} key={item.id} />
+            <Comment
+              comment={item}
+              id={id}
+              key={item.id}
+              inputForm={inputForm}
+              setInputForm={setInputForm}
+            />
           ))}
         </ScrollDiv>
       </CommentBox>

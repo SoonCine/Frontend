@@ -6,10 +6,8 @@ import { MainWrap, MainListContainer } from './MainStyled';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { asyncGetMovieList } from '../../redux/modules/movieList';
-import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const _movieList = useSelector((state) => state.movieList.movieList);
 
