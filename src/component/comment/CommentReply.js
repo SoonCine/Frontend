@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import {
   CommentList,
   IndivComment,
-  CommentWrap,
   CommentNickname,
-  CommentContent,
-  DRButtons,
   DeleteButton,
+  CommentEditInput,
+  DRButtons,
   ReviseButton,
-} from "../../pages/detail/DetailStyled";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+} from '../../pages/detail/DetailStyled';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import {
   editCommentList,
   _deleteCommentList,
-} from "../../redux/modules/comment";
+} from '../../redux/modules/comment';
 
 const Comment = ({ comment, id, inputForm, setInputForm }) => {
-
+  const [editDisabled, setEditDisabled] = useState(true);
+  const [editContent, setEditContent] = useState(comment.content);
   const dispatch = useDispatch();
 
   const onDelete = (e) => {
@@ -25,9 +25,6 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
     dispatch(_deleteCommentList(comment.id));
   };
 
-
-
-  const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setEditDisabled(!editDisabled);
     if (!editDisabled) {
@@ -43,21 +40,8 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
   return (
     <CommentList>
       <IndivComment>
-      //  <CommentWrap>
-      //    <CommentNickname> {comment.author} </CommentNickname>
-        //  <CommentContent> {comment.content} </CommentContent>
-      //  </CommentWrap>
-      //  <DRButtons>
-        //  <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
-        //  {/* <button onClick={onEdit}>수정하기</button> */}
-        //  <ReviseButton onClick={openModal}>수정</ReviseButton>
-       // </DRButtons>
-
-          <CommentWrap>
         <CommentNickname> {comment.author} </CommentNickname>
         {/* <CommentContent> {comment.content} </CommentContent> */}
-         </CommentWrap>
-         
         <CommentEditInput
           onChange={(e) => {
             setEditContent(e.target.value);
@@ -65,11 +49,12 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
           value={editDisabled ? comment.content : editContent}
           disabled={editDisabled}
         />
-        <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
-        {/* <button onClick={onEdit}>수정하기</button> */}
-        <button onClick={openModal}>
-          {editDisabled ? '수정' : '수정완료'}
-        </button>
+        <DRButtons>
+          <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
+          <ReviseButton onClick={openModal}>
+            {editDisabled ? '수정' : '수정완료'}
+          </ReviseButton>
+        </DRButtons>
       </IndivComment>
     </CommentList>
   );

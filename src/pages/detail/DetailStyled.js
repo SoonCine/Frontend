@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import "../../static//fonts/fonts.css";
+import styled from 'styled-components';
+import '../../static//fonts/fonts.css';
 
 export const WholeDetail = styled.div`
   /* width: 700px;
@@ -180,9 +180,10 @@ export const CommentWrap = styled.div`
 `;
 
 export const CommentNickname = styled.div`
-  /* text-align: left;
   width: 120px;
   height: 35px;
+`;
+
 export const CommentEditInput = styled.input`
   padding-left: 12px;
   width: 300px;
@@ -190,21 +191,6 @@ export const CommentEditInput = styled.input`
   border: 1px solid black;
   border-radius: 10px;
   margin: 15px 0px 15px 0px;
-`;
-
-export const DeleteButton = styled.button`
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 15px;
-  background-color: yellow; */
-  border: 1px solid black;
-  border-radius: 10px;
-  font-size: 16px;
-  height: 35px;
-  width: 20%;
-  line-height: 35px; // 줄 높이 정하는 속성. 나중에 찾아보기!
-  padding-left: 10px;
-  margin-right: 10px;
 `;
 
 export const CommentContent = styled.div`
@@ -255,7 +241,6 @@ export const ContentArea = styled.div`
   width: 340px;
   margin-top: 4.5px;
   margin-left: 20px;
-
 `;
 
 export const ScrollDiv = styled.div`
