@@ -2,7 +2,8 @@ import styled from 'styled-components';
 // import "../../static//fonts/fonts.css";
 
 export const WholeSignIn = styled.div`
-  height: 100vh;
+
+  height: 100vh; //최상단 div에서 배경사진 넣어줄 때, 100vh로 하면 어느 디스플레이에서든 같은 비율로 꽉 차게 보인다.
   display: flex;
   flex-direction: row;
   justify-content: center;

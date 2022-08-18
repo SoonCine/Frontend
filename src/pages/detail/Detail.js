@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addCommentList, commentList } from '../../redux/modules/comment';
 import { asyncGetMovieListDetail } from '../../redux/modules/movieListDetail';
+
 import {
   WholeDetail,
   ImageNinfo,
@@ -11,19 +12,21 @@ import {
   MovieImage,
   MovieInfo,
   MovieTitle,
-  // MovieEngtitle,
+
+  MovieAge,
   MovieReleaseDate,
   MovieAge,
   Likes,
   CommentBox,
   ScrollDiv,
-} from './DetailStyled';
+} from "./DetailStyled";
 
 import Comment from '../../component/comment/Comment';
 import CommentForm from '../../component/comment/CommentForm';
 import HeartLike from '../../component/main/HeartLike';
 import MainNav from '../../component/main/MainNav';
 import MainHeader from '../../component/main/MainHeader';
+
 
 
 function Detail() {
@@ -41,8 +44,6 @@ function Detail() {
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
   const comments = useSelector((state) => state.comment.commentList);
-
-  console.log('------------', movie);
 
   return (
     <WholeDetail>

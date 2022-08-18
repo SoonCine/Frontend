@@ -19,7 +19,7 @@ const MainList = ({ movieList }) => {
         <ListDate>{movieList.movieOpenDate}</ListDate>
 
         <ListContentsHead>
-          <h3>{lengthOverCut(title, 9)}</h3>
+          <h3>{lengthOverCut(title, 8)}</h3>
           <ListContentLike>
             {/* 하트 카운트 */}
             <HeartLike count={movieList.likes_count} />
