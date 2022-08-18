@@ -1,103 +1,135 @@
-import styled from 'styled-components';
-import '../../static//fonts/fonts.css';
+import styled from "styled-components";
+// import "../../static//fonts/fonts.css";
 
-export const MainBody = styled.div`
-  width: 750px;
-  height: 800px;
-  border: 3px solid white;
-  border-radius: 10px;
-  transform: translateY(20%);
-  margin: auto;
-  font-family: 'okgung';
+export const WholeSignUp = styled.div`
+  height: 730px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://i.pinimg.com/564x/a1/2a/bc/a12abcad54f56dfd0804f7a48d025fb4.jpg");
+  /* background-color: lightgray; */
 `;
 
-export const MainForm = styled.form`
+export const MainBody = styled.div`
+  /* margin: auto; */
   width: 500px;
-  height: 650px;
-  transform: translateY(20%);
-  background-color: #f4efeb;
+  height: 590px;
+  border: 2px solid orange;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 56px 0px 0px 0px; */
+  background-color: rgb(242, 252, 244);
+`;
+
+export const MainForm = styled.div`
+  width: 400px;
+  height: 500px;
   border-radius: 15px;
-  font-family: 'okgung';
-  position: absolute;
-  left: 125px;
-  bottom: 200px;
+  /* background-color: lightgreen; */
+`;
+export const SignUpTxt = styled.p`
+  margin: 40px 0px 0px 24px;
+  font-weight: bold;
+  text-decoration:underline;
+  /* text-underline-position: under; */
+  font-size 30px;
+  /* background-color: red; */
+`;
+export const WrapIdPwNickBtn = styled.div`
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: space-between;
+  align-items: left;
+  margin: 40px auto;
+  /* background-color: navy; */
 `;
 
 export const IdArea = styled.div`
-  position: absolute;
-  left: 85px;
-  top: 100px;
+  /* padding: 2px; */
+  /* margin: 0px 0px 100px 0px; */
+  /* background-color: lightpink; */
 `;
-
-export const PwArea = styled.div`
-  position: absolute;
-  left: 85px;
-  top: 200px;
-`;
-
-export const PwCheckArea = styled.div`
-  position: absolute;
-  left: 85px;
-  top: 300px;
-`;
-export const NicknameArea = styled.div`
-  position: absolute;
-  left: 85px;
-  top: 400px;
-`;
-
-export const ButtonArea = styled.div`
-  position: absolute;
-  left: 190px;
-  top: 500px;
-`;
-
-export const TitleTextArea = styled.div`
-  position: absolute;
-  left: 225px;
-  top: 20px;
-  font-size: 20px;
-`
 
 export const IdInput = styled.input`
-  width: ${(props) => (props.width ? props.width : 300)}px;
-  height: ${(props) => (props.height ? props.height : 50)}px;
-  outline: none;
-  border-radius: 15px 0px 0px 15px;
-  border: none;
-  padding-left: 10px;
-  font-size: 16px;
-  padding-left: 10px;
-  &:focus {
-    outline: 2px solid black;
-  }
+  height: 30px;
+  width: 230px;
+  border-radius: 6px;
+  border: 2px solid black;
+  margin: 0px 10px 0px 0px;
+  /* background-color: white; */
 `;
 
 export const IdButton = styled.button`
-  width: ${(props) => (props.width ? props.width : 120)}px;
-  height: ${(props) => (props.height ? props.height : 53)}px;
-  border: none;
-  background-color: white;
-  border-radius: 0px 10px 10px 0px;
-  outline: none;
-  background-color: #ffde8a;
-  /* font-family: "okgung"; */
-  &:hover {
-    cursor: pointer;
-    outline: 2px solid black;
-  }
+  width: 100px;
+  height: 36.4px;
+  border-radius: 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  /* background-color: lightgreen; */
 `;
 
-export const PwInput = styled.input`
-  width: ${(props) => (props.width ? props.width : 300)}px;
-  height: ${(props) => (props.height ? props.height : 50)}px;
-  outline: none;
-  border-radius: 15px;
-  border: none;
-  padding-left: 10px;
-  font-size: 16px;
-  padding-left: 10px;
-  &:focus {
-    outline: 2px solid black;
-  }
+// export const PwArea = styled.div`
+//   height: 80px;
+//   background-color: lightgray;
+// `;
+
+export const PwInput1 = styled.input`
+  height: 30px;
+  width: 340px;
+  border-radius: 6px;
+  border: 2px solid black;
+  /* margin: 0px 0px 36px 0px; */
+  /* background-color: orange; */
+`;
+export const PwInput2 = styled.input`
+  height: 30px;
+  width: 340px;
+  border-radius: 6px;
+  border: 2px solid black;
+  /* margin: 0px 0px 36px 0px; */
+  /* background-color: orange; */
+`;
+
+export const NicknameArea = styled.div`
+  /* margin-top: 12px; */
+  /* padding: 2px; */
+  /* background-color: lightskyblue; */
+`;
+
+export const NickInput = styled.input`
+  height: 30px;
+  width: 230px;
+  border-radius: 6px;
+  border: 2px solid black;
+  margin: 0px 10px 0px 0px;
+  /* background-color: yellow; */
+`;
+
+export const NickButton = styled.button`
+  width: 100px;
+  height: 36.4px;
+  border-radius: 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  /* background-color: lightgreen; */
+`;
+
+export const SaveButton = styled.button`
+  width: 100px;
+  height: 38px;
+  border-radius: 16px;
+  border: 2px solid black;
+  margin: 0px 0px 0px 120px;
+  cursor: pointer;
+  background-image: url("https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg");
+  background-position: 30%;
+  /* background-color: whitesmoke; */
+  /* background-color: lightgreen; */
 `;

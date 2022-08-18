@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import '../../static//fonts/fonts.css';
+import styled from "styled-components";
+import "../../static//fonts/fonts.css";
 
 export const WholeDetail = styled.div`
   /* width: 700px;
@@ -10,12 +10,13 @@ export const WholeDetail = styled.div`
   justify-content: center; */
   /* background-color: lightgray; */
   /* width: 1000px; */
-  background-image: url("https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg");
+  background-image: url('https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg');
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px;
+  height: 100vh;
 `;
 export const ImageNinfo = styled.div`
   width: 560px;
@@ -109,8 +110,8 @@ export const CommentNickname = styled.p`
   padding-top: 5px;
 `;
 export const CommentContent = styled.p`
-padding-left: 12px;
-padding-top: 5px;
+  padding-left: 12px;
+  padding-top: 5px;
   width: 300px;
   height: 30px;
   border: 1px solid black;

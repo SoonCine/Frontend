@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const url_post =
   process.env.REACT_APP_URL +
-  `/api/post/movieupcomming
+  `/api/post/movieupcomming/
 `;
 
 const initialState = {
@@ -11,12 +11,12 @@ const initialState = {
 };
 
 export const asyncGetMovieListDetail = createAsyncThunk(
-  'getMovieList',
+  'getMovieList_',
+  // 이거 이름 겹치면 안됨!!
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get(url_post + `/${payload}`);
+      const data = await axios.get(url_post + `${payload}`);
       return thunkAPI.fulfillWithValue(data.data.data);
-      // return console.log(data);
       // data.data.data 가 payload
     } catch (e) {
       return thunkAPI.rejectWithValue(e);

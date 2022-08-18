@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import HeartLike from "./HeartLike";
+import { useNavigate } from "react-router-dom";
 
 const MainList = ({ movieList }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const title = movieList.movieTitle;
-  console.log(movieList);
   const lengthOverCut = (str, maxLength) => {
     return str.length > maxLength ? str.slice(0, maxLength - 1) + "..." : str;
   };
 
   return (
-    <ListWrap>
+    <ListWrap onClick={() => navigate(`/detail/${movieList.id}`)}>
       <ListMovieImageBox>
         <ListMovieImage src={movieList.img} alt="profile" />
       </ListMovieImageBox>
@@ -20,7 +20,7 @@ const MainList = ({ movieList }) => {
         <ListDate>{movieList.movieOpenDate}</ListDate>
 
         <ListContentsHead>
-          <h3>{lengthOverCut(title, 8)}</h3>
+          <h3>{lengthOverCut(title, 9)}</h3>
           <ListContentLike>
             {/* 하트 카운트 */}
             <HeartLike count={movieList.likes_count} />
@@ -56,7 +56,9 @@ const ListMovieImageBox = styled.div`
 const ListMovieImage = styled.img`
   width: 100%;
   max-width: 210px;
-  margin: 10px auto; //한빛님이 알려주신 방법 rem이 브라우저마다 다르게나오는거. 상대적인크기. px과 혼용x
+  height: 100%;
+  max-height: 300px;
+  margin: 12px auto; //한빛님이 알려주신 방법 rem이 브라우저마다 다르게나오는거. 상대적인크기. px과 혼용x
   //rem은 폰트에 많이씀. 이건 혼용해도됨.
 
   display: flex;
@@ -80,53 +82,57 @@ const ListContents = styled.div`
   padding: 2px;
   width: 220px;
   /* padding: 4px; */
-  /* background-color: orange; */
+  background-color: orange;
 `;
 
 const ListDate = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  width: 215px;
+  width: 208px;
   box-sizing: border-box;
   border-radius: 10px;
   border: 2px solid lightsalmon;
-  padding: 2px 0px 2px 6px;
 
+  padding: 2px 0px 2px 8px;
+  margin: 3px 0px 0px 1px;
   /* background-color: skyblue; */
 `;
 
 const ListContentsHead = styled.div`
   display: flex;
   justify-content: space-between;
-  max-height: 60px;
+  max-height: 50px;
   width: 215px;
   overflow: hidden;
-  /* background-color: green; */
+  background-color: green;
 
   h3 {
+    width: 160px;
     max-width: 160px;
     max-height: 60px;
     align-items: center;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0.5px;
-    margin: 18px 2px 1px 0px;
+    margin: 13px 2px 1px 3px;
     /* text-overflow: ellipsis; */
-    /* background-color: white; */
+    background-color: white;
   }
   p {
     align-items: center;
-    font-size: 16px;
-    /* background-color: gray; */
+    font-size: 18px;
+    background-color: gray;
   }
 `;
 
 const ListContentLike = styled.div`
   align-items: center;
   display: flex;
-  min-height: 60px;
-  min-width: 60px;
+  min-height: 50px;
+  min-width: 50px;
+
+  padding: 2px 0px 0px 0px;
   /* background-color: pink; */
 `;
 
