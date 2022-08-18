@@ -2,21 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const MainHeader = () => {
-  return (
-    <HeaderWrap>
-      <img src="../../SoonCineLogo.png"></img>
-    </HeaderWrap>
-  );
+  return <HeaderWrap></HeaderWrap>;
 };
 
 const HeaderWrap = styled.div`
-  display: flex;
+  /* display: flex;
   width: 300px;
   height: 30px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-color: lightblue;
+  background-color: lightblue; */
 `;
 
 const HeaderMenu = styled.div``;
