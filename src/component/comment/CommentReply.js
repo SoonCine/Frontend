@@ -7,6 +7,7 @@ import {
   CommentEditInput,
   DRButtons,
   ReviseButton,
+  CommentWrap,
 } from '../../pages/detail/DetailStyled';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -40,15 +41,19 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
   return (
     <CommentList>
       <IndivComment>
-        <CommentNickname> {comment.author} </CommentNickname>
+        <CommentWrap>
+          <CommentNickname> {comment.author} </CommentNickname>
+          <CommentEditInput
+            onChange={(e) => {
+              setEditContent(e.target.value);
+            }}
+            value={editDisabled ? comment.content : editContent}
+            disabled={editDisabled}
+          />
+        </CommentWrap>
+        {/* <CommentNickname> {comment.author} </CommentNickname> */}
         {/* <CommentContent> {comment.content} </CommentContent> */}
-        <CommentEditInput
-          onChange={(e) => {
-            setEditContent(e.target.value);
-          }}
-          value={editDisabled ? comment.content : editContent}
-          disabled={editDisabled}
-        />
+
         <DRButtons>
           <DeleteButton onClick={onDelete}>🗑️</DeleteButton>
           <ReviseButton onClick={openModal}>

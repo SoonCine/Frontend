@@ -182,11 +182,18 @@ export const CommentWrap = styled.div`
 export const CommentNickname = styled.div`
   width: 120px;
   height: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-right: 10px;
 `;
 
 export const CommentEditInput = styled.input`
   padding-left: 12px;
-  width: 300px;
+  flex: 1;
   height: 35px;
   border: 1px solid black;
   border-radius: 10px;
