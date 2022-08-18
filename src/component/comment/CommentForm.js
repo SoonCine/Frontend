@@ -13,26 +13,19 @@ const CommentForm = ({ id, inputForm, setInputForm }) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comment.commentList);
 
-  // const [inputForm, setInputForm] = useState('');
-
-  // console.log(inputForm);
+  console.log('21321312321', comments);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputForm) {
       const newContents = { postId: { id }.id, content: inputForm };
+      // console.log('21321312321', newContents);
       dispatch(addCommentList(newContents));
       setInputForm('');
     } else {
       alert('내용을 입력해주세요');
     }
   };
-
-  // const handleLimit = (num, maxlength) => {
-  //   if (num.value.length > maxlength) {
-  //     num.value = num.value.substr(o, maxlength);
-  //   }
-  // };
 
   return (
     <CommentNbutton>

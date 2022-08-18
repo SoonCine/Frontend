@@ -11,8 +11,6 @@ const Main = () => {
   const dispatch = useDispatch();
   const _movieList = useSelector((state) => state.movieList.movieList);
 
-  // console.log(_movieList);
-
   useEffect(() => {
     dispatch(asyncGetMovieList());
   }, [dispatch]);
