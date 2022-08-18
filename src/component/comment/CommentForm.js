@@ -13,10 +13,6 @@ const CommentForm = ({ id, inputForm, setInputForm }) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comment.commentList);
 
-  // const [inputForm, setInputForm] = useState('');
-
-  // console.log(inputForm);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputForm) {
@@ -27,12 +23,6 @@ const CommentForm = ({ id, inputForm, setInputForm }) => {
       alert("내용을 입력해주세요");
     }
   };
-
-  // const handleLimit = (num, maxlength) => {
-  //   if (num.value.length > maxlength) {
-  //     num.value = num.value.substr(o, maxlength);
-  //   }
-  // };
 
   return (
     <CommentNbutton>

@@ -15,15 +15,17 @@ import {
   MovieTitle,
   MovieAge,
   MovieReleaseDate,
+
   CommentBox,
   ScrollDiv,
-} from "./DetailStyled";
+} from './DetailStyled';
 
 import Comment from "../../component/comment/CommentReply";
 import CommentForm from "../../component/comment/CommentForm";
 import HeartLike from "../../component/main/HeartLike";
 import MainNav from "../../component/main/MainNav";
 import MainHeader from "../../component/main/MainHeader";
+
 
 function Detail() {
   const dispatch = useDispatch();
@@ -39,8 +41,9 @@ function Detail() {
 
   const { id } = useParams();
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
-  const comments = useSelector((state) => state.comment.commentList);
 
+  const comments = useSelector((state) => state.comment.commentList);
+  console.log('12312312321321312', movie);
   return (
     <WholeDetail>
       <TwoBox>
@@ -58,7 +61,7 @@ function Detail() {
               <div>
                 <HeartLike />
               </div>
-              <div>{movie.likes}</div>
+              <div>{movie.movieRate}</div>
             </div>
           </MovieInfo>
         </ImageNinfo>

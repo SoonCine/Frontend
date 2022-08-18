@@ -48,21 +48,18 @@ const SignUp = () => {
   useEffect(() => {
     password === checkPw ? setP_check(true) : setP_check(false);
   }, [checkPw]);
-  console.log(E_Check, N_Check, P_Check);
 
   // password === checkPw ? setP_check(true) : setP_check(false)
-  // console.log(P_Check)
 
   const signUpCheck = (event) => {
-    console.log('가냐:::::');
     event.preventDefault();
     if (N_Check && E_Check) {
-      if(P_Check){
-      axios
-        .post('http://54.180.89.34:8080/api/member/signup', signUpData)
-        .then(() => navigate('/'));
-
-    }}
+      if (P_Check) {
+        axios
+          .post('http://54.180.89.34:8080/api/member/signup', signUpData)
+          .then(() => navigate('/'));
+      }
+    }
     if (E_Check === false) {
       axios
         .post('http://54.180.89.34:8080/api/members/emailcheck', checkEmail)
@@ -106,10 +103,10 @@ const SignUp = () => {
                 value={email}
                 onChange={setEmail}
                 placeholder="  이메일"
-
-                required
-              ></IdInput>
-              <IdButton onClick={(event)=>signUpCheck(event)}>중복 확인</IdButton>
+                required></IdInput>
+              <IdButton onClick={(event) => signUpCheck(event)}>
+                중복 확인
+              </IdButton>
             </IdArea>
             {/* <PwArea> */}
             <PwInput1
@@ -141,9 +138,13 @@ const SignUp = () => {
                 // required
               ></NickInput>
 
-              <NickButton onClick={(event)=>signUpCheck(event)}>중복 확인</NickButton>
+              <NickButton onClick={(event) => signUpCheck(event)}>
+                중복 확인
+              </NickButton>
             </NicknameArea>
-            <SaveButton onClick={(event)=>signUpCheck(event)}>등록!</SaveButton>
+            <SaveButton onClick={(event) => signUpCheck(event)}>
+              등록!
+            </SaveButton>
           </WrapIdPwNickBtn>
         </MainForm>
       </MainBody>

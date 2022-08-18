@@ -22,9 +22,9 @@ const MainList = ({ movieList }) => {
           <h3>{lengthOverCut(title, 8)}</h3>
           <ListContentLike>
             {/* 하트 카운트 */}
-            <HeartLike count={movieList.likes_count} />
+            <HeartLike count={movieList.movieRate} />
             {/* 하트 카운트 숫자 */}
-            <p> {movieList.likes_count}</p>
+            <p> {movieList.movieRate}</p>
           </ListContentLike>
         </ListContentsHead>
       </ListContents>

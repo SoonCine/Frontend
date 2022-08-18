@@ -4,11 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 const MainNav = () => {
   const navigate = useNavigate();
-  const nickName = localStorage.getItem("Nickname");
-  // console.log(object);
+  const nickName = localStorage.getItem('Nickname');
 
   const logOut = () => {
-    // console.log(nickName);
     localStorage.clear();
     // 로컬스토리지에 있는 토큰값 삭제
     window.location.reload();

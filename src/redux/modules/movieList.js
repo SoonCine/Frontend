@@ -17,7 +17,6 @@ export const asyncGetMovieList = createAsyncThunk(
       const data = await axios.get(url_post);
 
       return thunkAPI.fulfillWithValue(data.data.data);
-      // return console.log(data);
       // data.data.data 가 payload
     } catch (e) {
       return thunkAPI.rejectWithValue(e);

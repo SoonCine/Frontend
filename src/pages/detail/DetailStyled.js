@@ -10,7 +10,7 @@ export const WholeDetail = styled.div`
   justify-content: center; */
   /* background-color: lightgray; */
   /* width: 1000px; */
-  background-image: url("https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg");
+  background-image: url('https://i.pinimg.com/564x/14/4b/a9/144ba9c008b781d52fb03f4ef05ba441.jpg');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +34,7 @@ export const ImageNinfo = styled.div`
   justify-content: center;
   align-items: center;
   /* background-color: rgb(252, 249, 242); */
-  background-image: url("https://i.pinimg.com/564x/4c/d3/02/4cd302d1c2d1211f07c168d01f77dbaa.jpg");
+  background-image: url('https://i.pinimg.com/564x/4c/d3/02/4cd302d1c2d1211f07c168d01f77dbaa.jpg');
   background-position: 10%;
 `;
 
@@ -101,7 +101,7 @@ export const CommentBox = styled.div`
   justify-content: center;
   align-items: center;
   /* background-color: rgb(252, 249, 242); */
-  background-image: url("https://i.pinimg.com/564x/4c/d3/02/4cd302d1c2d1211f07c168d01f77dbaa.jpg");
+  background-image: url('https://i.pinimg.com/564x/4c/d3/02/4cd302d1c2d1211f07c168d01f77dbaa.jpg');
 `;
 
 export const CommentNbutton = styled.div`
@@ -183,6 +183,16 @@ export const CommentNickname = styled.div`
   /* text-align: left;
   width: 120px;
   height: 35px;
+export const CommentEditInput = styled.input`
+  padding-left: 12px;
+  width: 300px;
+  height: 35px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 15px 0px 15px 0px;
+`;
+
+export const DeleteButton = styled.button`
   border: 1px solid black;
   border-radius: 10px;
   margin: 15px;
@@ -245,7 +255,7 @@ export const ContentArea = styled.div`
   width: 340px;
   margin-top: 4.5px;
   margin-left: 20px;
-  background-color: red;
+
 `;
 
 export const ScrollDiv = styled.div`

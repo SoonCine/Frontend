@@ -41,7 +41,6 @@ const Login = () => {
     localStorage.setItem('Nickname', res.data.data);
     window.location.reload();
   };
-  console.log(process.env.REACT_APP_URL);
   const sign = (event) => {
     event.preventDefault();
     axios
