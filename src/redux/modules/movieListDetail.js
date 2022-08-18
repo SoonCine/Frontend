@@ -16,7 +16,6 @@ export const asyncGetMovieListDetail = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }
-    // console.log(thunkAPI.fulfillWithValue);
   }
 );
 
@@ -26,12 +25,9 @@ export const movieDetailSlice = createSlice({
   reducers: {},
   extraReducers: {
     [asyncGetMovieListDetail.fulfilled]: (state, action) => {
-      // console.log(action.payload);
       state.movieListDetail = action.payload;
     },
-    [asyncGetMovieListDetail.rejected]: (state, action) => {
-      // console.log(action);
-    },
+    [asyncGetMovieListDetail.rejected]: (state, action) => {},
   },
 });
 
