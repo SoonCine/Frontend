@@ -10,6 +10,9 @@ const MainNav = () => {
   const logOut = () => {
     // console.log(nickName);
     localStorage.clear();
+    // 로컬스토리지에 있는 토큰값 삭제
+    window.location.reload();
+    // 페이지 리로딩
     navigate('/');
   };
 

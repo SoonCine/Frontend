@@ -25,6 +25,8 @@ import {
 import Comment from '../../component/comment/Comment';
 import CommentForm from '../../component/comment/CommnetForm';
 import HeartLike from '../../component/main/HeartLike';
+import MainNav from '../../component/main/MainNav';
+import MainHeader from '../../component/main/MainHeader';
 
 function Detail() {
   const dispatch = useDispatch();
@@ -46,6 +48,8 @@ function Detail() {
 
   return (
     <WholeDetail>
+      <MainHeader />
+      <MainNav />
       <ImageNinfo>
         <ImageBox>
           <MovieImage src={movie.img} />

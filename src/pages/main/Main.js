@@ -6,7 +6,6 @@ import { MainWrap, MainListContainer } from './MainStyled';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { asyncGetMovieList } from '../../redux/modules/movieList';
-import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();

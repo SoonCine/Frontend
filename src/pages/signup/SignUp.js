@@ -1,10 +1,10 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import useInput from "../../hook/hook";
-import axios from "axios";
-import checkEmailThunk from "../../redux/modules/user";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import useInput from '../../hook/hook';
+import axios from 'axios';
+import checkEmailThunk from '../../redux/modules/user';
+import { useNavigate } from 'react-router-dom';
 
 //styled import
 import {
@@ -23,14 +23,14 @@ import {
   NickInput,
   NickButton,
   SaveButton,
-} from "./SignUpStyled";
-import { TotalButton } from "../../component/totalButton/TotalButtonStyled";
+} from './SignUpStyled';
+import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
 
 const SignUp = () => {
-  const [email, setEmail] = useInput("");
-  const [password, setPassword] = useInput("");
-  const [checkPw, setCheckPw] = useInput("");
-  const [nickName, setNickName] = useInput("");
+  const [email, setEmail] = useInput('');
+  const [password, setPassword] = useInput('');
+  const [checkPw, setCheckPw] = useInput('');
+  const [nickName, setNickName] = useInput('');
   const [E_Check, setE_check] = useState(false);
   const [N_Check, setN_Check] = useState(false);
   const [P_Check, setP_check] = useState(false);
@@ -49,36 +49,37 @@ const SignUp = () => {
   // console.log(P_Check)
 
   const signUpCheck = (event) => {
+    console.log('가냐:::::');
     event.preventDefault();
     if (N_Check && E_Check) {
       axios
-        .post("http://54.180.89.34:8080/api/member/signup", signUpData)
-        .then(() => navigate("/"));
+        .post('http://54.180.89.34:8080/api/member/signup', signUpData)
+        .then(() => navigate('/'));
     }
     if (E_Check === false) {
       axios
-        .post("http://54.180.89.34:8080/api/members/emailcheck", checkEmail)
+        .post('http://54.180.89.34:8080/api/members/emailcheck', checkEmail)
         .then((res) => {
           if (res.data.data) {
-            alert("사용 가능한 이메일 입니다.");
+            alert('사용 가능한 이메일 입니다.');
             setE_check(res.data.data);
           } else {
-            alert("이미 가입한 이메일 입니다.");
+            alert('이미 가입한 이메일 입니다.');
             setE_check(res.data.data);
           }
         });
     } else if (N_Check === false) {
       axios
         .post(
-          "http://54.180.89.34:8080/api/members/nicknamecheck",
+          'http://54.180.89.34:8080/api/members/nicknamecheck',
           checkNickname
         )
         .then((res) => {
           if (res.data.data) {
-            alert("사용 가능한 닉네임 입니다.");
+            alert('사용 가능한 닉네임 입니다.');
             setN_Check(res.data.data);
           } else {
-            alert("이미 사용중인 닉네임 입니다.");
+            alert('이미 사용중인 닉네임 입니다.');
             setE_check(res.data.data);
           }
         });
@@ -96,9 +97,10 @@ const SignUp = () => {
                 value={email}
                 onChange={setEmail}
                 placeholder="  이메일"
-                required
-              ></IdInput>
-              <IdButton>중복 확인</IdButton>
+                required></IdInput>
+              <IdButton onClick={(event) => signUpCheck(event)}>
+                중복 확인
+              </IdButton>
             </IdArea>
             {/* <PwArea> */}
             <PwInput1
@@ -124,9 +126,13 @@ const SignUp = () => {
                 maxLength={8}
                 // required
               ></NickInput>
-              <NickButton>중복 확인</NickButton>
+              <NickButton onClick={(event) => signUpCheck(event)}>
+                중복 확인
+              </NickButton>
             </NicknameArea>
-            <SaveButton>등록!</SaveButton>
+            <SaveButton onClick={(event) => signUpCheck(event)}>
+              등록!
+            </SaveButton>
           </WrapIdPwNickBtn>
         </MainForm>
       </MainBody>
