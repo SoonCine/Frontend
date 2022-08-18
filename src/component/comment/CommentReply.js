@@ -21,6 +21,8 @@ const Comment = ({ comment, id, inputForm, setInputForm }) => {
     dispatch(_deleteCommentList(comment.id));
   };
 
+  console.log(Comment);
+
   const onEdit = (e) => {
     e.preventDefault();
     const pay = {

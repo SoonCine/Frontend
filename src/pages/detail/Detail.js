@@ -19,7 +19,7 @@ import {
   ScrollDiv,
 } from './DetailStyled';
 
-import Comment from '../../component/comment/Comment';
+import Comment from '../../component/comment/CommentReply';
 import CommentForm from '../../component/comment/CommentForm';
 import HeartLike from '../../component/main/HeartLike';
 import MainNav from '../../component/main/MainNav';
