@@ -12,22 +12,18 @@ import {
   MovieImage,
   MovieInfo,
   MovieTitle,
-
   MovieAge,
   MovieReleaseDate,
-  MovieAge,
   Likes,
   CommentBox,
   ScrollDiv,
-} from "./DetailStyled";
+} from './DetailStyled';
 
-import Comment from '../../component/comment/Comment';
+import Comment from '../../component/comment/CommentReply';
 import CommentForm from '../../component/comment/CommentForm';
 import HeartLike from '../../component/main/HeartLike';
 import MainNav from '../../component/main/MainNav';
 import MainHeader from '../../component/main/MainHeader';
-
-
 
 function Detail() {
   const dispatch = useDispatch();
