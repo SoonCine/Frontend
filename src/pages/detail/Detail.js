@@ -1,9 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { addCommentList, commentList } from "../../redux/modules/comment";
-import { asyncGetMovieListDetail } from "../../redux/modules/movieListDetail";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addCommentList, commentList } from '../../redux/modules/comment';
+import { asyncGetMovieListDetail } from '../../redux/modules/movieListDetail';
 
 import {
   WholeDetail,
@@ -15,21 +15,19 @@ import {
   MovieTitle,
   MovieAge,
   MovieReleaseDate,
-
   CommentBox,
   ScrollDiv,
 } from './DetailStyled';
 
-import Comment from "../../component/comment/CommentReply";
-import CommentForm from "../../component/comment/CommentForm";
-import HeartLike from "../../component/main/HeartLike";
-import MainNav from "../../component/main/MainNav";
-import MainHeader from "../../component/main/MainHeader";
-
+import Comment from '../../component/comment/CommentReply';
+import CommentForm from '../../component/comment/CommentForm';
+import HeartLike from '../../component/main/HeartLike';
+import MainNav from '../../component/main/MainNav';
+import MainHeader from '../../component/main/MainHeader';
 
 function Detail() {
   const dispatch = useDispatch();
-  const [inputForm, setInputForm] = useState("");
+  const [inputForm, setInputForm] = useState('');
 
   useEffect(() => {
     dispatch(commentList(id));
@@ -43,7 +41,6 @@ function Detail() {
   const movie = useSelector((state) => state.movieListDetail.movieListDetail);
 
   const comments = useSelector((state) => state.comment.commentList);
-  console.log('12312312321321312', movie);
   return (
     <WholeDetail>
       <TwoBox>
@@ -57,7 +54,7 @@ function Detail() {
             <hr></hr>
             <MovieAge>{movie.movieAge}</MovieAge>
             <MovieReleaseDate>{movie.movieOpenDate}</MovieReleaseDate>
-            <div style={{ display: "flex", margin: "10px 10px 10px 16px" }}>
+            <div style={{ display: 'flex', margin: '10px 10px 10px 16px' }}>
               <div>
                 <HeartLike />
               </div>
