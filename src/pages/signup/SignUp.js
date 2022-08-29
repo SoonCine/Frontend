@@ -27,6 +27,7 @@ import {
 } from './SignUpStyled';
 import { TotalButton } from '../../component/totalButton/TotalButtonStyled';
 
+// 회원가입
 const SignUp = () => {
   const [email, setEmail] = useInput('');
   const [password, setPassword] = useInput('');
@@ -48,39 +49,32 @@ const SignUp = () => {
   useEffect(() => {
     password === checkPw ? setP_check(true) : setP_check(false);
   }, [checkPw]);
-const URL = process.env.REACT_APP_URL
-
+  const URL = process.env.REACT_APP_URL;
 
   // password === checkPw ? setP_check(true) : setP_check(false)
 
   const signUpCheck = (event) => {
     event.preventDefault();
     if (N_Check && E_Check) {
-
-      if(P_Check){
-      axios
-        .post(`${URL}/api/member/signup`, signUpData)
-        .then(() => navigate('/'));
-
-    }}
+      if (P_Check) {
+        axios
+          .post(`${URL}/api/member/signup`, signUpData)
+          .then(() => navigate('/'));
+      }
+    }
     if (E_Check === false) {
-      axios
-        .post(`${URL}/api/members/emailcheck`, checkEmail)
-        .then((res) => {
-          if (res.data.data) {
-            alert('사용 가능한 이메일 입니다.');
-            setE_check(res.data.data);
-          } else {
-            alert('이미 가입한 이메일 입니다.');
-            setE_check(res.data.data);
-          }
-        });
+      axios.post(`${URL}/api/members/emailcheck`, checkEmail).then((res) => {
+        if (res.data.data) {
+          alert('사용 가능한 이메일 입니다.');
+          setE_check(res.data.data);
+        } else {
+          alert('이미 가입한 이메일 입니다.');
+          setE_check(res.data.data);
+        }
+      });
     } else if (N_Check === false) {
       axios
-        .post(
-          `${URL}/api/members/nicknamecheck`,
-          checkNickname
-        )
+        .post(`${URL}/api/members/nicknamecheck`, checkNickname)
         .then((res) => {
           if (res.data.data) {
             alert('사용 가능한 닉네임 입니다.');
@@ -105,7 +99,7 @@ const URL = process.env.REACT_APP_URL
               <IdInput
                 value={email}
                 onChange={setEmail}
-                placeholder="  이메일"
+                placeholder='  이메일'
                 required></IdInput>
               <IdButton onClick={(event) => signUpCheck(event)}>
                 중복 확인
@@ -113,27 +107,27 @@ const URL = process.env.REACT_APP_URL
             </IdArea>
             {/* <PwArea> */}
             <PwInput1
-              placeholder="  비밀번호"
+              placeholder='  비밀번호'
               value={password}
               onChange={setPassword}
               minLength={6}
               required
-              type="password"
+              type='password'
               // required
             ></PwInput1>
             <PwInput2
-              placeholder="  비밀번호 확인"
+              placeholder='  비밀번호 확인'
               value={checkPw}
               onChange={setCheckPw}
               minLength={6}
-              type="password"
+              type='password'
               required
               // required
             ></PwInput2>
             {/* </PwArea> */}
             <NicknameArea>
               <NickInput
-                placeholder="  닉네임"
+                placeholder='  닉네임'
                 value={nickName}
                 onChange={setNickName}
                 maxLength={8}
